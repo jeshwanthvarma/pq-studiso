@@ -2,872 +2,643 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="theme-color" content="#00c3ff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <title>PQ STUDIOS | Futuristic Photography Studio | Hyderabad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PQ Studios Hyderabad - Professional photography studio founded by Sai Kumar Maddina. Expert in wedding, commercial, and portrait photography.">
+    <title>PQ Studios | Professional Photography Studio | Hyderabad</title>
     
-    <!-- Extreme Futuristic Resources -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     
-    <!-- Manifest for PWA -->
-    <link rel="manifest" href="manifest.json">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
     
-    <!-- CSS Variables for Futuristic Theme -->
-    <style>
-        :root {
-            /* Cyberpunk Color Palette */
-            --cyber-blue: #00c3ff;
-            --cyber-pink: #ff00ff;
-            --cyber-purple: #9d00ff;
-            --cyber-green: #00ff9d;
-            --neon-red: #ff003c;
-            --matrix-green: #00ff41;
-            
-            /* Futuristic Gradients */
-            --gradient-main: linear-gradient(135deg, #00c3ff 0%, #9d00ff 50%, #ff00ff 100%);
-            --gradient-dark: linear-gradient(135deg, #001122 0%, #003344 50%, #001133 100%);
-            --gradient-card: linear-gradient(135deg, rgba(0,195,255,0.1) 0%, rgba(157,0,255,0.1) 50%, rgba(255,0,255,0.1) 100%);
-            
-            /* Glassmorphism */
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px rgba(0, 195, 255, 0.1);
-            
-            /* Neumorphism */
-            --neu-shadow: 20px 20px 60px #001122, -20px -20px 60px #003366;
-            --neu-inset: inset 20px 20px 60px #001122, inset -20px -20px 60px #003366;
-            
-            /* Typography */
-            --font-heading: 'Orbitron', sans-serif;
-            --font-body: 'Exo 2', sans-serif;
-            --font-mono: 'Inter', monospace;
-            
-            /* Spacing */
-            --space-3d: 15px;
-            --glow-intensity: 0 0 20px;
-        }
-        
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        *::-webkit-scrollbar {
-            width: 0px;
-            height: 0px;
-        }
-        
-        /* Hide scrollbar for IE, Edge and Firefox */
-        * {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-    </style>
-    
-    <link rel="stylesheet" href="styles.css">
+    <!-- Preload critical images -->
+    <link rel="preload" href="images/hero-slide-1.jpg" as="image">
+    <link rel="preload" href="images/logo.png" as="image">
 </head>
-<body class="cyber-body" data-theme="cyber">
-    <!-- 3D Background Elements -->
-    <div class="cyber-grid"></div>
-    <div class="floating-particles"></div>
-    <div class="scan-line"></div>
-    <div class="hologram-effect"></div>
-    
-    <!-- Futuristic Cursor -->
-    <div class="cyber-cursor" id="cyberCursor"></div>
-    <div class="cursor-trail"></div>
-    
-    <!-- Holographic Notification -->
-    <div class="hologram-notification" id="hologramNotification">
-        <div class="hologram-content">
-            <div class="hologram-header">
-                <div class="hologram-icon"><i class="fas fa-bolt"></i></div>
-                <h4>SYSTEM NOTIFICATION</h4>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="logo-text">PQ</span>
+                <div class="logo-underline"></div>
             </div>
-            <p id="hologramMessage">Welcome to PQ Studios</p>
-            <div class="hologram-buttons">
-                <button class="hologram-btn confirm" onclick="hideHologram()">ACKNOWLEDGE</button>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
             </div>
         </div>
     </div>
-    
-    <!-- Loading Terminal -->
-    <div class="terminal-loading" id="terminalLoading">
-        <div class="terminal-header">
-            <div class="terminal-dots">
-                <span></span><span></span><span></span>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <!-- Logo -->
+                <a href="#" class="logo" onclick="showPage('home'); return false;">
+                    <img src="images/logo.png" alt="PQ Studios" class="logo-image">
+                    <span class="logo-text">PQ Studios</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active" onclick="showPage('home'); return false;">Home</a></li>
+                    <li><a href="#services" class="nav-link" onclick="showPage('services'); return false;">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
+                    <li><a href="#about" class="nav-link" onclick="showPage('about'); return false;">About</a></li>
+                    <li><a href="#contact" class="nav-link" onclick="showPage('contact'); return false;">Contact</a></li>
+                </ul>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <div class="terminal-title">PQ_STUDIOS_SYSTEM</div>
         </div>
-        <div class="terminal-body">
-            <div class="terminal-line">> Initializing System...</div>
-            <div class="terminal-line">> Loading Photographic Protocols...</div>
-            <div class="terminal-line">> Activating Visual Processing...</div>
-            <div class="terminal-line">> System Ready in <span id="countdown">3</span>...</div>
-        </div>
-    </div>
-    
-    <!-- Augmented Reality Header -->
-    <header class="ar-header" id="arHeader">
-        <div class="header-grid">
-            <!-- Logo with Holographic Effect -->
-            <div class="holographic-logo" onclick="event.preventDefault(); showPage('home');">
-                <div class="logo-core">
-                    <div class="logo-glitch">PQ_STUDIOS</div>
-                    <div class="logo-base">PQ_STUDIOS</div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- HOME PAGE -->
+        <section id="home-page" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-slideshow">
+                    <div class="slide active">
+                        <img src="images/hero-slide-1.jpg" alt="Professional Photography Studio" loading="eager">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h1 class="hero-title">Capture Your Story</h1>
+                            <p class="hero-subtitle">Professional photography studio in Hyderabad</p>
+                            <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
+                                <span>Book a Session</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="images/hero-slide-2.jpg" alt="Wedding Photography Hyderabad" loading="lazy">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <h1 class="hero-title">Timeless Moments</h1>
+                            <p class="hero-subtitle">Elegant wedding and portrait photography</p>
+                            <a href="#portfolio" class="btn btn-primary" onclick="showPage('portfolio'); return false;">
+                                <span>View Portfolio</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="logo-aura"></div>
-                <div class="logo-sparkle"></div>
+                
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0"></button>
+                    <button class="indicator" data-slide="1"></button>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <span>Scroll</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </section>
+
+            <!-- Introduction -->
+            <section class="introduction section-padding">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Professional Photography Studio</h2>
+                        <p class="section-subtitle">Hyderabad's premier destination for exceptional visual storytelling</p>
+                    </div>
+                    
+                    <div class="intro-grid">
+                        <div class="intro-card">
+                            <div class="intro-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3>Expert Photography</h3>
+                            <p>10+ years of professional experience in wedding, commercial, and portrait photography</p>
+                        </div>
+                        
+                        <div class="intro-card">
+                            <div class="intro-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3>Award Winning</h3>
+                            <p>Recognized excellence in photographic artistry and technical mastery</p>
+                        </div>
+                        
+                        <div class="intro-card">
+                            <div class="intro-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Client Focused</h3>
+                            <p>Personalized service and attention to detail for every project</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Work -->
+            <section class="featured-work section-padding bg-light">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Featured Work</h2>
+                        <p class="section-subtitle">A curated selection of our finest photography projects</p>
+                    </div>
+                    
+                    <div class="work-grid">
+                        <div class="work-item" onclick="showPage('portfolio'); openGallery('wedding');">
+                            <img src="images/featured-wedding.jpg" alt="Wedding Photography" loading="lazy">
+                            <div class="work-overlay">
+                                <div class="work-content">
+                                    <h3>Wedding Photography</h3>
+                                    <span class="work-category">Events</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="work-item" onclick="showPage('portfolio'); openGallery('commercial');">
+                            <img src="images/featured-commercial.jpg" alt="Commercial Photography" loading="lazy">
+                            <div class="work-overlay">
+                                <div class="work-content">
+                                    <h3>Commercial Photography</h3>
+                                    <span class="work-category">Brands</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="work-item" onclick="showPage('portfolio'); openGallery('portrait');">
+                            <img src="images/featured-portrait.jpg" alt="Portrait Photography" loading="lazy">
+                            <div class="work-overlay">
+                                <div class="work-content">
+                                    <h3>Portrait Photography</h3>
+                                    <span class="work-category">People</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <a href="#portfolio" class="btn btn-outline" onclick="showPage('portfolio'); return false;">
+                            <span>View Complete Portfolio</span>
+                            <i class="fas fa-images"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section class="stats section-padding">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="10">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="500">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="1000">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="50">0</div>
+                            <div class="stat-label">Awards Won</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- SERVICES PAGE -->
+        <section id="services-page" class="page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1 class="page-title">Our Services</h1>
+                    <p class="page-subtitle">Professional photography solutions for every need</p>
+                </div>
             </div>
-            
-            <!-- Augmented Navigation -->
-            <nav class="ar-nav">
-                <div class="nav-hologram">
-                    <ul class="nav-matrix">
-                        <li class="nav-node">
-                            <a href="#home" class="nav-link" onclick="event.preventDefault(); showPage('home'); activateNode(this);">
-                                <span class="nav-icon"><i class="fas fa-home"></i></span>
-                                <span class="nav-label">HOME</span>
-                                <span class="nav-ping"></span>
-                            </a>
-                        </li>
-                        <li class="nav-node">
-                            <a href="#services" class="nav-link" onclick="event.preventDefault(); showPage('services'); activateNode(this);">
-                                <span class="nav-icon"><i class="fas fa-camera"></i></span>
-                                <span class="nav-label">SERVICES</span>
-                                <span class="nav-ping"></span>
-                            </a>
-                        </li>
-                        <li class="nav-node">
-                            <a href="#gallery" class="nav-link" onclick="event.preventDefault(); showPage('gallery'); activateNode(this);">
-                                <span class="nav-icon"><i class="fas fa-vr-cardboard"></i></span>
-                                <span class="nav-label">GALLERY</span>
-                                <span class="nav-ping"></span>
-                            </a>
-                        </li>
-                        <li class="nav-node">
-                            <a href="#about" class="nav-link" onclick="event.preventDefault(); showPage('about'); activateNode(this);">
-                                <span class="nav-icon"><i class="fas fa-user-astronaut"></i></span>
-                                <span class="nav-label">ABOUT</span>
-                                <span class="nav-ping"></span>
-                            </a>
-                        </li>
-                        <li class="nav-node">
-                            <a href="#contact" class="nav-link" onclick="event.preventDefault(); showPage('contact'); activateNode(this);">
-                                <span class="nav-icon"><i class="fas fa-satellite"></i></span>
-                                <span class="nav-label">CONTACT</span>
-                                <span class="nav-ping"></span>
-                            </a>
-                        </li>
+
+            <section class="services section-padding">
+                <div class="container">
+                    <div class="services-grid">
+                        <!-- Wedding Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <img src="images/service-wedding.jpg" alt="Wedding Photography" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h3>Wedding & Events</h3>
+                                <p>Capture your special day with timeless elegance and emotion. Professional wedding photography for ceremonies, receptions, and pre-wedding shoots.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Full Day Coverage</li>
+                                    <li><i class="fas fa-check"></i> Candid & Traditional</li>
+                                    <li><i class="fas fa-check"></i> Album Design</li>
+                                    <li><i class="fas fa-check"></i> Digital Delivery</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='wedding'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Commercial Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <img src="images/service-commercial.jpg" alt="Commercial Photography" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h3>Commercial & Brand</h3>
+                                <p>Professional photography for businesses, products, and brands. Elevate your marketing with high-quality visual content.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Product Photography</li>
+                                    <li><i class="fas fa-check"></i> Corporate Portraits</li>
+                                    <li><i class="fas fa-check"></i> Brand Campaigns</li>
+                                    <li><i class="fas fa-check"></i> E-commerce Photos</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='commercial'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portrait Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <img src="images/service-portrait.jpg" alt="Portrait Photography" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h3>Portrait & Lifestyle</h3>
+                                <p>Professional portrait sessions for individuals, families, and professionals. Create lasting memories with beautiful photography.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Family Portraits</li>
+                                    <li><i class="fas fa-check"></i> Professional Headshots</li>
+                                    <li><i class="fas fa-check"></i> Maternity & Newborn</li>
+                                    <li><i class="fas fa-check"></i> Outdoor Sessions</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='portrait'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <img src="images/service-product.jpg" alt="Product Photography" loading="lazy">
+                            </div>
+                            <div class="service-content">
+                                <h3>Product & Food</h3>
+                                <p>Professional product and food photography that makes your offerings look irresistible.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> White Background</li>
+                                    <li><i class="fas fa-check"></i> Lifestyle Shots</li>
+                                    <li><i class="fas fa-check"></i> Food Styling</li>
+                                    <li><i class="fas fa-check"></i> 360° Product Views</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='product'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- PORTFOLIO PAGE -->
+        <section id="portfolio-page" class="page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1 class="page-title">Portfolio</h1>
+                    <p class="page-subtitle">Explore our collection of photography work</p>
+                </div>
+            </div>
+
+            <section class="portfolio section-padding">
+                <div class="container">
+                    <!-- Portfolio Filter -->
+                    <div class="portfolio-filter" id="portfolioFilter">
+                        <button class="filter-btn active" data-filter="all">All Work</button>
+                        <button class="filter-btn" data-filter="wedding">Wedding</button>
+                        <button class="filter-btn" data-filter="commercial">Commercial</button>
+                        <button class="filter-btn" data-filter="portrait">Portrait</button>
+                        <button class="filter-btn" data-filter="product">Product</button>
+                    </div>
+                    
+                    <!-- Portfolio Grid -->
+                    <div class="portfolio-grid" id="portfolioGrid">
+                        <!-- Images will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about-page" class="page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1 class="page-title">About Us</h1>
+                    <p class="page-subtitle">The story behind PQ Studios</p>
+                </div>
+            </div>
+
+            <section class="about section-padding">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="images/profile-sai-kumar.jpg" alt="Sai Kumar Maddina - Founder" loading="lazy">
+                        </div>
+                        
+                        <div class="about-text">
+                            <h2>Sai Kumar Maddina</h2>
+                            <p class="title">Founder & Lead Photographer</p>
+                            
+                            <p>With over a decade of professional photography experience, I founded PQ Studios with a vision to create timeless visual stories that capture the essence of every moment.</p>
+                            
+                            <p>My journey in photography began with formal education in visual arts, complemented by years of hands-on experience working with diverse clients. This combination of academic knowledge and practical expertise allows me to approach each project with both artistic vision and technical precision.</p>
+                            
+                            <p>At PQ Studios, we believe that great photography is more than just taking pictures - it's about creating visual narratives that resonate emotionally and stand the test of time.</p>
+                            
+                            <div class="about-signature">
+                                <img src="images/signature.png" alt="Signature" loading="lazy">
+                                <p>Sai Kumar Maddina</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Philosophy -->
+                    <div class="philosophy section-padding">
+                        <h2 class="section-title">Our Philosophy</h2>
+                        <div class="philosophy-grid">
+                            <div class="philosophy-item">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3>Artistic Vision</h3>
+                                <p>We approach every project with creative insight and attention to aesthetic detail.</p>
+                            </div>
+                            
+                            <div class="philosophy-item">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3>Passionate Craft</h3>
+                                <p>Photography is our passion, and we pour that energy into every image we create.</p>
+                            </div>
+                            
+                            <div class="philosophy-item">
+                                <div class="philosophy-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h3>Client Partnership</h3>
+                                <p>We work collaboratively with clients to understand and realize their vision.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonials -->
+                    <div class="testimonials section-padding bg-light">
+                        <h2 class="section-title">Client Testimonials</h2>
+                        
+                        <div class="testimonial-slider">
+                            <div class="testimonial-slide active">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"PQ Studios captured our wedding day perfectly. Every photo tells a story and brings back beautiful memories. Professional, talented, and a pleasure to work with!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="images/client-1.jpg" alt="Client" loading="lazy">
+                                        <div>
+                                            <h4>Rajesh & Priya Sharma</h4>
+                                            <span>Wedding Photography</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="testimonial-slide">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"The product photography for our e-commerce store significantly increased our conversion rates. Attention to detail and understanding of our brand was exceptional."</p>
+                                    <div class="testimonial-author">
+                                        <img src="images/client-2.jpg" alt="Client" loading="lazy">
+                                        <div>
+                                            <h4>Anil Kumar</h4>
+                                            <span>Business Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-nav">
+                            <button class="testimonial-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="testimonial-dots">
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                            </div>
+                            <button class="testimonial-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact-page" class="page">
+            <div class="page-hero">
+                <div class="container">
+                    <h1 class="page-title">Contact Us</h1>
+                    <p class="page-subtitle">Let's create something beautiful together</p>
+                </div>
+            </div>
+
+            <section class="contact section-padding">
+                <div class="container">
+                    <div class="contact-grid">
+                        <!-- Contact Form -->
+                        <div class="contact-form-container">
+                            <h2>Get in Touch</h2>
+                            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                            
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="serviceSelect">Service Required *</label>
+                                    <select id="serviceSelect" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="wedding">Wedding Photography</option>
+                                        <option value="commercial">Commercial Photography</option>
+                                        <option value="portrait">Portrait Photography</option>
+                                        <option value="product">Product Photography</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">
+                                    <span>Send Message</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="contact-info">
+                            <h2>Contact Information</h2>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Studio Location</h3>
+                                    <p>Hitech City, Hyderabad</p>
+                                    <p>Serving across India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Phone Number</h3>
+                                    <p><a href="tel:+919652337710">+91 96523 37710</a></p>
+                                    <p>Monday - Saturday, 10AM - 7PM</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Email Address</h3>
+                                    <p><a href="mailto:info@pqstudios.net">info@pqstudios.net</a></p>
+                                    <p>Response within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Social Links -->
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/pqstudios_hyd" target="_blank" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://wa.me/919652337710" target="_blank" class="social-link">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://www.facebook.com/portrayalque" target="_blank" class="social-link">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="mailto:info@pqstudios.net" class="social-link">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="PQ Studios" loading="lazy">
+                    <h3>PQ Studios</h3>
+                    <p>Professional Photography Studio</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" onclick="showPage('home'); return false;">Home</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Services</a></li>
+                        <li><a href="#portfolio" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
+                        <li><a href="#about" onclick="showPage('about'); return false;">About</a></li>
+                        <li><a href="#contact" onclick="showPage('contact'); return false;">Contact</a></li>
                     </ul>
                 </div>
                 
-                <!-- Mobile AR Toggle -->
-                <button class="ar-toggle" id="arToggle" aria-label="Toggle augmented reality navigation">
-                    <div class="toggle-core">
-                        <span class="toggle-bar"></span>
-                        <span class="toggle-bar"></span>
-                        <span class="toggle-bar"></span>
-                    </div>
-                    <div class="toggle-aura"></div>
-                </button>
-            </nav>
-            
-            <!-- Cyber Control Panel -->
-            <div class="cyber-controls">
-                <button class="control-btn sound-toggle" onclick="toggleSound()">
-                    <i class="fas fa-volume-up"></i>
-                </button>
-                <button class="control-btn theme-toggle" onclick="toggleTheme()">
-                    <i class="fas fa-palette"></i>
-                </button>
-                <button class="control-btn vr-toggle" onclick="enterVRMode()">
-                    <i class="fas fa-vr-cardboard"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Data Stream -->
-        <div class="data-stream">
-            <div class="stream-line"></div>
-            <div class="stream-text">PQ_STUDIOS.HYD // CREATIVE_PHOTOGRAPHY // VISION_2024 //</div>
-        </div>
-    </header>
-    
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-ar-overlay" id="mobileArOverlay">
-        <div class="mobile-hologram">
-            <div class="mobile-nav-grid">
-                <a href="#home" class="mobile-nav-cell" onclick="event.preventDefault(); showPage('home'); closeMobileNav();">
-                    <div class="cell-glow"></div>
-                    <i class="fas fa-home"></i>
-                    <span>HOME</span>
-                </a>
-                <a href="#services" class="mobile-nav-cell" onclick="event.preventDefault(); showPage('services'); closeMobileNav();">
-                    <div class="cell-glow"></div>
-                    <i class="fas fa-camera"></i>
-                    <span>SERVICES</span>
-                </a>
-                <a href="#gallery" class="mobile-nav-cell" onclick="event.preventDefault(); showPage('gallery'); closeMobileNav();">
-                    <div class="cell-glow"></div>
-                    <i class="fas fa-vr-cardboard"></i>
-                    <span>GALLERY</span>
-                </a>
-                <a href="#about" class="mobile-nav-cell" onclick="event.preventDefault(); showPage('about'); closeMobileNav();">
-                    <div class="cell-glow"></div>
-                    <i class="fas fa-user-astronaut"></i>
-                    <span>ABOUT</span>
-                </a>
-                <a href="#contact" class="mobile-nav-cell" onclick="event.preventDefault(); showPage('contact'); closeMobileNav();">
-                    <div class="cell-glow"></div>
-                    <i class="fas fa-satellite"></i>
-                    <span>CONTACT</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Main Content Container -->
-    <main class="cyber-container" id="mainContainer">
-        <!-- HOME PAGE -->
-        <section id="home-page" class="page active">
-            <!-- Quantum Hero Section -->
-            <div class="quantum-hero">
-                <div class="particle-field"></div>
-                <div class="hero-core">
-                    <h1 class="hero-title glitch-text" data-text="REIMAGINE REALITY">
-                        REIMAGINE REALITY
-                    </h1>
-                    <div class="hero-subtitle">
-                        <span class="typing-text" id="typingText"></span>
-                        <span class="cursor-blink">|</span>
-                    </div>
-                    
-                    <!-- Interactive Hero Elements -->
-                    <div class="hero-interface">
-                        <div class="interface-grid">
-                            <div class="interface-card" onclick="showPage('services')">
-                                <div class="card-hologram">
-                                    <i class="fas fa-rocket"></i>
-                                    <h3>SERVICES</h3>
-                                    <p>Advanced Photography Solutions</p>
-                                </div>
-                                <div class="card-aura"></div>
-                            </div>
-                            
-                            <div class="interface-card" onclick="showPage('gallery')">
-                                <div class="card-hologram">
-                                    <i class="fas fa-eye"></i>
-                                    <h3>GALLERY</h3>
-                                    <p>Holographic Portfolio</p>
-                                </div>
-                                <div class="card-aura"></div>
-                            </div>
-                            
-                            <div class="interface-card" onclick="showPage('contact')">
-                                <div class="card-hologram">
-                                    <i class="fas fa-comments"></i>
-                                    <h3>CONTACT</h3>
-                                    <p>Quantum Communication</p>
-                                </div>
-                                <div class="card-aura"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- CTA Beam -->
-                    <button class="cyber-cta" onclick="showPage('contact')">
-                        <span class="cta-text">INITIATE PROJECT</span>
-                        <div class="cta-beam"></div>
-                        <div class="cta-sparks"></div>
-                    </button>
+                <div class="footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Wedding Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Commercial Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Portrait Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Product Photography</a></li>
+                    </ul>
                 </div>
                 
-                <!-- Stats Hologram -->
-                <div class="stats-hologram">
-                    <div class="stat-node">
-                        <div class="stat-value" data-count="10">0</div>
-                        <div class="stat-label">YEARS EXPERIENCE</div>
-                        <div class="stat-glow"></div>
-                    </div>
-                    <div class="stat-node">
-                        <div class="stat-value" data-count="500">0</div>
-                        <div class="stat-label">SATISFIED CLIENTS</div>
-                        <div class="stat-glow"></div>
-                    </div>
-                    <div class="stat-node">
-                        <div class="stat-value" data-count="1000">0</div>
-                        <div class="stat-label">PROJECTS COMPLETED</div>
-                        <div class="stat-glow"></div>
-                    </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Hitech City, Hyderabad</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+919652337710">+91 96523 37710</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@pqstudios.net">info@pqstudios.net</a></p>
                 </div>
             </div>
             
-            <!-- Neural Network Gallery -->
-            <div class="neural-gallery">
-                <h2 class="section-title glitch-text" data-text="NEURAL_PORTFOLIO">
-                    NEURAL_PORTFOLIO
-                </h2>
-                
-                <div class="neural-network">
-                    <div class="network-node" style="--delay: 0" onclick="openHologramGallery('food')">
-                        <div class="node-core">
-                            <img src="food photography 1.jpg" alt="Food Photography">
-                        </div>
-                        <div class="node-connections"></div>
-                        <div class="node-label">FOOD</div>
-                    </div>
-                    
-                    <div class="network-node" style="--delay: 1" onclick="openHologramGallery('fashion')">
-                        <div class="node-core">
-                            <img src="fashion lifestyle 1.jpg" alt="Fashion Photography">
-                        </div>
-                        <div class="node-connections"></div>
-                        <div class="node-label">FASHION</div>
-                    </div>
-                    
-                    <div class="network-node" style="--delay: 2" onclick="openHologramGallery('product')">
-                        <div class="node-core">
-                            <img src="product photography 1.jpg" alt="Product Photography">
-                        </div>
-                        <div class="node-connections"></div>
-                        <div class="node-label">PRODUCT</div>
-                    </div>
-                    
-                    <div class="network-node" style="--delay: 3" onclick="openHologramGallery('brand')">
-                        <div class="node-core">
-                            <img src="brand portfolios 1.jpg" alt="Brand Photography">
-                        </div>
-                        <div class="node-connections"></div>
-                        <div class="node-label">BRAND</div>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 PQ Studios Hyderabad. All rights reserved.</p>
+                <p>Professional Photography by Sai Kumar Maddina</p>
             </div>
-            
-            <!-- Quantum Booking Widget -->
-            <div class="quantum-booking">
-                <div class="booking-hologram">
-                    <h3>QUANTUM BOOKING SYSTEM</h3>
-                    <div class="booking-form">
-                        <div class="form-field">
-                            <label for="bookingDate"><i class="fas fa-calendar-alt"></i> SELECT DATE</label>
-                            <input type="date" id="bookingDate" class="cyber-input" min="<?php echo date('Y-m-d'); ?>">
-                        </div>
-                        <div class="form-field">
-                            <label for="bookingService"><i class="fas fa-cogs"></i> SERVICE TYPE</label>
-                            <select id="bookingService" class="cyber-select">
-                                <option value="">SELECT SERVICE</option>
-                                <option value="food">FOOD PHOTOGRAPHY</option>
-                                <option value="fashion">FASHION PHOTOGRAPHY</option>
-                                <option value="product">PRODUCT PHOTOGRAPHY</option>
-                                <option value="brand">BRAND PHOTOGRAPHY</option>
-                            </select>
-                        </div>
-                        <button class="cyber-btn" onclick="initiateBooking()">
-                            <span>QUANTUM SCHEDULE</span>
-                            <i class="fas fa-bolt"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- SERVICES PAGE -->
-        <section id="services-page" class="page">
-            <!-- Services Hologram -->
-            <div class="services-hologram">
-                <h1 class="page-title glitch-text" data-text="QUANTUM_SERVICES">
-                    QUANTUM_SERVICES
-                </h1>
-                
-                <!-- Service Cards in 3D Grid -->
-                <div class="service-grid-3d">
-                    <!-- Card 1 -->
-                    <div class="service-card-3d" data-tilt data-tilt-max="20" data-tilt-speed="400">
-                        <div class="card-front">
-                            <div class="card-icon"><i class="fas fa-utensils"></i></div>
-                            <h3>FOOD PHOTOGRAPHY</h3>
-                            <p>Quantum culinary visualization</p>
-                        </div>
-                        <div class="card-back">
-                            <h4>FEATURES</h4>
-                            <ul>
-                                <li>Holographic food styling</li>
-                                <li>Molecular gastronomy capture</li>
-                                <li>360° culinary visualization</li>
-                                <li>AR menu integration</li>
-                            </ul>
-                            <button class="card-cta" onclick="showHologramMessage('Food Photography selected')">
-                                SELECT SERVICE
-                            </button>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
-                    
-                    <!-- Card 2 -->
-                    <div class="service-card-3d" data-tilt data-tilt-max="20" data-tilt-speed="400">
-                        <div class="card-front">
-                            <div class="card-icon"><i class="fas fa-tshirt"></i></div>
-                            <h3>FASHION PHOTOGRAPHY</h3>
-                            <p>Augmented reality fashion</p>
-                        </div>
-                        <div class="card-back">
-                            <h4>FEATURES</h4>
-                            <ul>
-                                <li>Virtual runway capture</li>
-                                <li>Digital fabric rendering</li>
-                                <li>AI style analysis</li>
-                                <li>3D model integration</li>
-                            </ul>
-                            <button class="card-cta" onclick="showHologramMessage('Fashion Photography selected')">
-                                SELECT SERVICE
-                            </button>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
-                    
-                    <!-- Card 3 -->
-                    <div class="service-card-3d" data-tilt data-tilt-max="20" data-tilt-speed="400">
-                        <div class="card-front">
-                            <div class="card-icon"><i class="fas fa-box-open"></i></div>
-                            <h3>PRODUCT PHOTOGRAPHY</h3>
-                            <p>Holographic product visualization</p>
-                        </div>
-                        <div class="card-back">
-                            <h4>FEATURES</h4>
-                            <ul>
-                                <li>360° product rotation</li>
-                                <li>AR product preview</li>
-                                <li>Interactive product demos</li>
-                                <li>Virtual unboxing</li>
-                            </ul>
-                            <button class="card-cta" onclick="showHologramMessage('Product Photography selected')">
-                                SELECT SERVICE
-                            </button>
-                        </div>
-                        <div class="card-glow"></div>
-                    </div>
-                    
-                    <!-- Add more cards as needed -->
-                </div>
-            </div>
-            
-            <!-- Service Comparison Hologram -->
-            <div class="comparison-hologram">
-                <h3>SERVICE MATRIX</h3>
-                <div class="matrix-table">
-                    <div class="matrix-header">
-                        <div class="matrix-cell">FEATURE</div>
-                        <div class="matrix-cell">BASIC</div>
-                        <div class="matrix-cell">PRO</div>
-                        <div class="matrix-cell">ELITE</div>
-                    </div>
-                    <div class="matrix-row">
-                        <div class="matrix-cell">Resolution</div>
-                        <div class="matrix-cell">4K</div>
-                        <div class="matrix-cell">8K</div>
-                        <div class="matrix-cell">16K</div>
-                    </div>
-                    <!-- Add more rows -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- GALLERY PAGE -->
-        <section id="gallery-page" class="page">
-            <!-- Holographic Gallery -->
-            <div class="holographic-gallery">
-                <h1 class="page-title glitch-text" data-text="HOLOGRAPHIC_GALLERY">
-                    HOLOGRAPHIC_GALLERY
-                </h1>
-                
-                <!-- Category Selection -->
-                <div class="category-orbits">
-                    <div class="orbit-ring">
-                        <div class="orbit-category active" onclick="filterGallery('all')">
-                            <div class="orbit-icon"><i class="fas fa-globe"></i></div>
-                            <span>ALL</span>
-                        </div>
-                        <div class="orbit-category" onclick="filterGallery('food')">
-                            <div class="orbit-icon"><i class="fas fa-utensils"></i></div>
-                            <span>FOOD</span>
-                        </div>
-                        <div class="orbit-category" onclick="filterGallery('fashion')">
-                            <div class="orbit-icon"><i class="fas fa-tshirt"></i></div>
-                            <span>FASHION</span>
-                        </div>
-                        <div class="orbit-category" onclick="filterGallery('product')">
-                            <div class="orbit-icon"><i class="fas fa-box-open"></i></div>
-                            <span>PRODUCT</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 3D Gallery Grid -->
-                <div class="gallery-grid-3d" id="galleryGrid">
-                    <!-- Images will be loaded here -->
-                </div>
-                
-                <!-- Gallery Controls -->
-                <div class="gallery-controls">
-                    <button class="control-3d" onclick="rotateGallery('left')">
-                        <i class="fas fa-rotate-left"></i>
-                    </button>
-                    <button class="control-3d" onclick="zoomGallery('in')">
-                        <i class="fas fa-search-plus"></i>
-                    </button>
-                    <button class="control-3d" onclick="zoomGallery('out')">
-                        <i class="fas fa-search-minus"></i>
-                    </button>
-                    <button class="control-3d" onclick="rotateGallery('right')">
-                        <i class="fas fa-rotate-right"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-        
-        <!-- ABOUT PAGE -->
-        <section id="about-page" class="page">
-            <!-- Bio Hologram -->
-            <div class="bio-hologram">
-                <div class="hologram-avatar">
-                    <div class="avatar-container">
-                        <img src="sai kumar profile pic.jpg" alt="Sai Kumar Maddina" class="avatar-image">
-                        <div class="avatar-glow"></div>
-                        <div class="avatar-scan"></div>
-                    </div>
-                </div>
-                
-                <div class="bio-content">
-                    <h1 class="glitch-text" data-text="SAI_KUMAR_MADDINA">
-                        SAI_KUMAR_MADDINA
-                    </h1>
-                    <div class="bio-tags">
-                        <span class="bio-tag">FOUNDER</span>
-                        <span class="bio-tag">VISIONARY</span>
-                        <span class="bio-tag">PHOTOGRAPHER</span>
-                        <span class="bio-tag">INNOVATOR</span>
-                    </div>
-                    
-                    <div class="bio-stats">
-                        <div class="stat-ring">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle" stroke="#00c3ff" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
-                            </svg>
-                            <div class="stat-value">10+</div>
-                            <div class="stat-label">YEARS</div>
-                        </div>
-                        <div class="stat-ring">
-                            <svg class="progress-ring" width="120" height="120">
-                                <circle class="progress-ring-circle" stroke="#ff00ff" stroke-width="4" fill="transparent" r="52" cx="60" cy="60"/>
-                            </svg>
-                            <div class="stat-value">500+</div>
-                            <div class="stat-label">CLIENTS</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Timeline Hologram -->
-            <div class="timeline-hologram">
-                <h3>TECHNOLOGY TIMELINE</h3>
-                <div class="timeline">
-                    <div class="timeline-event">
-                        <div class="event-date">2014</div>
-                        <div class="event-content">
-                            <h4>QUANTUM BEGINNINGS</h4>
-                            <p>Founded PQ Studios with vision of futuristic photography</p>
-                        </div>
-                        <div class="event-node"></div>
-                    </div>
-                    <!-- Add more events -->
-                </div>
-            </div>
-        </section>
-        
-        <!-- CONTACT PAGE -->
-        <section id="contact-page" class="page">
-            <!-- Quantum Communication Terminal -->
-            <div class="quantum-terminal">
-                <div class="terminal-header">
-                    <div class="terminal-title">
-                        <i class="fas fa-satellite"></i>
-                        QUANTUM_COMMUNICATION_TERMINAL
-                    </div>
-                    <div class="terminal-status">
-                        <span class="status-dot active"></span>
-                        CONNECTION: ACTIVE
-                    </div>
-                </div>
-                
-                <div class="terminal-body">
-                    <!-- Contact Form Hologram -->
-                    <form class="contact-hologram" id="quantumContactForm">
-                        <input type="hidden" name="access_key" value="701f0f4c-cea4-40a0-ba87-0b0859fab2bb">
-                        <input type="hidden" name="subject" value="Quantum Communication from PQ Studios">
-                        
-                        <div class="form-row">
-                            <div class="form-field">
-                                <label for="quantumName"><i class="fas fa-user-astronaut"></i> IDENTIFICATION</label>
-                                <input type="text" id="quantumName" name="name" class="hologram-input" required placeholder="ENTER YOUR NAME">
-                                <div class="input-glow"></div>
-                            </div>
-                            
-                            <div class="form-field">
-                                <label for="quantumEmail"><i class="fas fa-envelope"></i> COMMUNICATION CHANNEL</label>
-                                <input type="email" id="quantumEmail" name="email" class="hologram-input" required placeholder="EMAIL_ADDRESS">
-                                <div class="input-glow"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-field">
-                            <label for="quantumService"><i class="fas fa-cogs"></i> SERVICE REQUEST</label>
-                            <select id="quantumService" name="service" class="hologram-select" required>
-                                <option value="">SELECT SERVICE TYPE</option>
-                                <option value="food_quantum">QUANTUM FOOD PHOTOGRAPHY</option>
-                                <option value="fashion_quantum">AUGMENTED FASHION</option>
-                                <option value="product_quantum">HOLOGRAPHIC PRODUCTS</option>
-                                <option value="brand_quantum">BRAND VISUALIZATION</option>
-                            </select>
-                            <div class="select-glow"></div>
-                        </div>
-                        
-                        <div class="form-field">
-                            <label for="quantumMessage"><i class="fas fa-comment-dots"></i> MESSAGE TRANSMISSION</label>
-                            <textarea id="quantumMessage" name="message" class="hologram-textarea" rows="4" placeholder="ENTER YOUR MESSAGE..."></textarea>
-                            <div class="textarea-glow"></div>
-                        </div>
-                        
-                        <!-- File Upload with Holographic Preview -->
-                        <div class="form-field">
-                            <label for="quantumFiles"><i class="fas fa-upload"></i> FILE TRANSMISSION</label>
-                            <div class="hologram-upload">
-                                <input type="file" id="quantumFiles" name="files" multiple accept="image/*,.pdf,.doc,.docx">
-                                <div class="upload-area">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <p>DRAG & DROP OR CLICK TO UPLOAD</p>
-                                </div>
-                                <div class="upload-preview" id="uploadPreview"></div>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="quantum-submit">
-                            <span class="submit-text">INITIATE TRANSMISSION</span>
-                            <div class="submit-beam"></div>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                    
-                    <!-- Live Communication Channels -->
-                    <div class="live-channels">
-                        <h4><i class="fas fa-broadcast-tower"></i> LIVE CHANNELS</h4>
-                        <div class="channels-grid">
-                            <a href="https://wa.me/919652337710" class="channel-card whatsapp-holo" target="_blank">
-                                <div class="channel-icon"><i class="fab fa-whatsapp"></i></div>
-                                <div class="channel-info">
-                                    <h5>QUANTUM CHAT</h5>
-                                    <p>Instant communication</p>
-                                </div>
-                                <div class="channel-status active"></div>
-                            </a>
-                            
-                            <a href="tel:+919652337710" class="channel-card phone-holo">
-                                <div class="channel-icon"><i class="fas fa-phone"></i></div>
-                                <div class="channel-info">
-                                    <h5>VOICE CHANNEL</h5>
-                                    <p>Direct communication</p>
-                                </div>
-                                <div class="channel-status active"></div>
-                            </a>
-                            
-                            <a href="mailto:info@pqstudios.net" class="channel-card email-holo">
-                                <div class="channel-icon"><i class="fas fa-envelope"></i></div>
-                                <div class="channel-info">
-                                    <h5>DATA PACKET</h5>
-                                    <p>Secure transmission</p>
-                                </div>
-                                <div class="channel-status active"></div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Location Hologram -->
-            <div class="location-hologram">
-                <h4><i class="fas fa-map-marker-alt"></i> COORDINATES</h4>
-                <div class="hologram-map">
-                    <!-- Simple map representation -->
-                    <div class="map-grid">
-                        <div class="map-node active"></div>
-                        <div class="map-node"></div>
-                        <div class="map-node"></div>
-                        <div class="map-node"></div>
-                        <div class="map-node pq-location"></div>
-                        <!-- Add more nodes for map effect -->
-                    </div>
-                    <div class="location-info">
-                        <p><i class="fas fa-crosshairs"></i> HITECH CITY, HYDERABAD</p>
-                        <p><i class="fas fa-satellite"></i> SERVING ACROSS INDIA</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- NEWSLETTER HOLOGRAM -->
-        <div class="newsletter-hologram">
-            <div class="newsletter-core">
-                <h3><i class="fas fa-broadcast-tower"></i> SUBSCRIBE TO QUANTUM UPDATES</h3>
-                <p>Receive holographic insights and futuristic photography techniques</p>
-                <form class="newsletter-form" id="quantumNewsletter">
-                    <input type="email" placeholder="ENTER YOUR QUANTUM ADDRESS" required>
-                    <button type="submit">
-                        <span>SUBSCRIBE</span>
-                        <i class="fas fa-bolt"></i>
-                    </button>
-                </form>
-                <div class="subscriber-count">
-                    <i class="fas fa-users"></i>
-                    <span id="subCount">427</span> QUANTUM SUBSCRIBERS
-                </div>
-            </div>
-        </div>
-    </main>
-    
-    <!-- Quantum Footer -->
-    <footer class="quantum-footer">
-        <div class="footer-grid">
-            <!-- System Info -->
-            <div class="footer-module">
-                <div class="module-header">
-                    <h4>PQ_STUDIOS_SYSTEM</h4>
-                    <div class="module-status active"></div>
-                </div>
-                <div class="module-content">
-                    <p>Advanced Photography Solutions since 2014</p>
-                    <div class="system-metrics">
-                        <div class="metric">
-                            <span class="metric-label">UPTIME</span>
-                            <span class="metric-value">99.9%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">VERSION</span>
-                            <span class="metric-value">QUANTUM 2.4</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="footer-module">
-                <div class="module-header">
-                    <h4>QUANTUM LINKS</h4>
-                </div>
-                <div class="module-content">
-                    <div class="link-matrix">
-                        <a href="#services" onclick="showPage('services')">SERVICES</a>
-                        <a href="#gallery" onclick="showPage('gallery')">PORTFOLIO</a>
-                        <a href="#about" onclick="showPage('about')">ABOUT</a>
-                        <a href="#contact" onclick="showPage('contact')">CONTACT</a>
-                        <a href="#" onclick="showHologramMessage('Blog coming soon')">BLOG</a>
-                        <a href="#" onclick="showHologramMessage('Careers portal launching soon')">CAREERS</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Social Matrix -->
-            <div class="footer-module">
-                <div class="module-header">
-                    <h4>SOCIAL MATRIX</h4>
-                </div>
-                <div class="module-content">
-                    <div class="social-grid">
-                        <a href="https://www.instagram.com/pqstudios_hyd" class="social-node instagram" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/919652337710" class="social-node whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.facebook.com/portrayalque" class="social-node facebook" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="mailto:info@pqstudios.net" class="social-node email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Footer Data Stream -->
-        <div class="footer-stream">
-            <div class="stream-text">
-                <span>PQ_STUDIOS_HYD • CREATIVE_PHOTOGRAPHY • FUTURISTIC_VISUALS • 2024 •</span>
-                <span>ALL SYSTEMS OPERATIONAL • QUANTUM_PHOTOGRAPHY_ACTIVE •</span>
-            </div>
-        </div>
-        
-        <!-- Copyright -->
-        <div class="copyright-hologram">
-            <p>© 2024 PQ STUDIOS HYDERABAD | QUANTUM PHOTOGRAPHY SYSTEM</p>
-            <p>DESIGNED WITH <i class="fas fa-heart"></i> FOR THE FUTURE</p>
         </div>
     </footer>
-    
-    <!-- Back to Quantum Top -->
-    <button class="quantum-top" id="quantumTop" onclick="scrollToTop()">
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
         <i class="fas fa-chevron-up"></i>
-        <div class="quantum-orb"></div>
     </button>
-    
-    <!-- Mobile Quick Actions -->
-    <div class="mobile-quick-actions">
-        <button class="quick-action" onclick="showPage('contact')">
-            <i class="fas fa-comment"></i>
-            <span>CONTACT</span>
-        </button>
-        <button class="quick-action" onclick="window.open('https://wa.me/919652337710', '_blank')">
-            <i class="fab fa-whatsapp"></i>
-            <span>WHATSAPP</span>
-        </button>
-        <button class="quick-action" onclick="showPage('home')">
-            <i class="fas fa-home"></i>
-            <span>HOME</span>
-        </button>
-        <button class="quick-action" onclick="toggleMobileNav()">
-            <i class="fas fa-bars"></i>
-            <span>MENU</span>
-        </button>
-        <button class="quick-action" onclick="scrollToTop()">
-            <i class="fas fa-arrow-up"></i>
-            <span>TOP</span>
-        </button>
-    </div>
-    
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="scripts.js"></script>
-    
-    <!-- Initialize on load -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize futuristic effects
-            initializeQuantumSystem();
-            loadParticles();
-            startTypingEffect();
-            initializeCursor();
-            preloadGallery();
-            
-            // Show loading terminal
-            setTimeout(() => {
-                document.getElementById('terminalLoading').style.display = 'none';
-                showHologramMessage('Quantum System Initialized. Welcome to PQ Studios.');
-            }, 3000);
-        });
-    </script>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
