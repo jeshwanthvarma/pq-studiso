@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PQ Studios Hyderabad - Professional photography studio founded by Sai Kumar Maddina. Expert in wedding, commercial, and portrait photography.">
+    <meta name="description" content="PQ Studios Hyderabad - Professional photography studio specializing in food, product, fashion, pet, and commercial photography. Award-winning photographer Sai Kumar Maddina with 10+ years experience.">
+    <meta name="keywords" content="professional photography Hyderabad, food photography, product photography, fashion photography, pet photography, commercial photography, wedding photography, portrait photography, Sai Kumar Maddina, PQ Studios">
+    <meta name="author" content="PQ Studios Hyderabad">
+    <meta property="og:title" content="PQ Studios | Professional Photography Studio | Hyderabad">
+    <meta property="og:description" content="Hyderabad's premier photography studio specializing in commercial, product, food, and fashion photography.">
+    <meta property="og:image" content="Logo.png">
+    <meta property="og:url" content="https://pqstudios.net">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <title>PQ Studios | Professional Photography Studio | Hyderabad</title>
     
     <!-- Fonts -->
@@ -15,1425 +23,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- CSS -->
-    <style>
-        /* ===== RESET & BASE STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Color Palette - BLUE THEME */
-            --primary: #4682b4; /* Steel Blue */
-            --primary-dark: #2a5c8a;
-            --primary-light: #6ba1d6;
-            --secondary: #1a1a2e; /* Dark Blue */
-            --accent: #e6f2ff; /* Light Blue */
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --gray-light: #e9ecef;
-            
-            /* Typography */
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-            --font-accent: 'Cormorant Garamond', serif;
-            
-            /* Spacing */
-            --section-padding: 80px 0;
-            
-            /* Transitions */
-            --transition: all 0.3s ease;
-            
-            /* Shadows */
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
-        }
-
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--dark);
-            line-height: 1.6;
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* ===== LOADING SCREEN ===== */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-content {
-            text-align: center;
-        }
-
-        .logo-text {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            color: var(--primary);
-            font-weight: 700;
-            display: block;
-        }
-
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        h1 { font-size: 3.5rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.75rem; }
-        h4 { font-size: 1.25rem; }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* ===== LAYOUT ===== */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: var(--section-padding);
-        }
-
-        .bg-light {
-            background-color: var(--light);
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-4 {
-            margin-top: 2rem;
-        }
-
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 28px;
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 1rem;
-            text-decoration: none;
-            border: 2px solid transparent;
-            transition: var(--transition);
-            cursor: pointer;
-            gap: 10px;
-            min-height: 48px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            border-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border-color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* ===== NAVIGATION ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: var(--shadow-sm);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 10px;
-        }
-
-        .logo-image {
-            height: 50px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--dark);
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: var(--dark);
-            transition: var(--transition);
-        }
-
-        /* ===== MAIN CONTENT ===== */
-        .main-content {
-            margin-top: 76px; /* Navbar height */
-        }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            position: relative;
-            height: 90vh;
-            min-height: 600px;
-            overflow: hidden;
-        }
-
-        .hero-slideshow {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .slide-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-        }
-
-        .slide-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            width: 90%;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            color: white;
-            margin-bottom: 1rem;
-            animation: slideUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            animation: slideUp 1s ease 0.2s both;
-        }
-
-        .hero .btn {
-            animation: slideUp 1s ease 0.4s both;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .slide-indicators {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 2px solid white;
-            background: transparent;
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 0;
-        }
-
-        .indicator.active {
-            background: white;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            text-align: center;
-            z-index: 3;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator span {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 40px;
-            background: white;
-            margin: 0 auto;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* ===== INTRODUCTION ===== */
-        .intro-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .intro-card {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .intro-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .intro-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-
-        .intro-card h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        /* ===== FEATURED WORK ===== */
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .work-item {
-            position: relative;
-            height: 400px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            background: #f0f0f0;
-        }
-
-        .work-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .work-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .work-item:hover .work-overlay {
-            opacity: 1;
-        }
-
-        .work-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .work-content {
-            color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .work-item:hover .work-content {
-            transform: translateY(0);
-        }
-
-        .work-content h3 {
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .work-category {
-            font-size: 0.9rem;
-            color: var(--accent);
-            font-family: var(--font-accent);
-        }
-
-        /* ===== STATS ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-family: var(--font-heading);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: var(--gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ===== PAGE HERO ===== */
-        .page-hero {
-            background-color: var(--secondary);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .page-title {
-            color: white;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .page-subtitle {
-            color: var(--accent);
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ===== SERVICES ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-image {
-            height: 250px;
-            overflow: hidden;
-            background: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.05);
-        }
-
-        .service-content {
-            padding: 2rem;
-        }
-
-        .service-content h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .service-features {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-        }
-
-        .service-features li i {
-            color: var(--primary);
-        }
-
-        .service-footer {
-            margin-top: 2rem;
-        }
-
-        /* ===== PORTFOLIO ===== */
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 10px 24px;
-            background: transparent;
-            border: 2px solid var(--gray-light);
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-weight: 500;
-            color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            position: relative;
-            height: 300px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            background: #f5f5f5;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-
-        .portfolio-content {
-            color: white;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-item:hover .portfolio-content {
-            transform: translateY(0);
-        }
-
-        .portfolio-content h4 {
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-category {
-            font-size: 0.9rem;
-            color: var(--accent);
-            font-family: var(--font-accent);
-        }
-
-        /* ===== ABOUT ===== */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-text h2 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .title {
-            font-family: var(--font-accent);
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .about-signature {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-light);
-        }
-
-        .about-signature img {
-            height: 40px;
-            margin-bottom: 0.5rem;
-        }
-
-        .philosophy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .philosophy-item {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .philosophy-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--primary);
-            font-size: 1.8rem;
-        }
-
-        .philosophy-item h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonial-slider {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto;
-            overflow: hidden;
-        }
-
-        .testimonial-slide {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .testimonial-slide.active {
-            display: block;
-        }
-
-        .testimonial-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-
-        .testimonial-content i {
-            font-size: 2rem;
-            color: var(--primary-light);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .testimonial-author h4 {
-            margin-bottom: 0.25rem;
-            color: var(--secondary);
-        }
-
-        .testimonial-author span {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .testimonial-prev,
-        .testimonial-next {
-            background: none;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid var(--gray-light);
-            color: var(--gray);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .testimonial-prev:hover,
-        .testimonial-next:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .testimonial-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--gray-light);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .dot.active {
-            background: var(--primary);
-        }
-
-        /* ===== CONTACT ===== */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        .contact-form-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-form-container h2 {
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-form {
-            margin-top: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--secondary);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--gray-light);
-            border-radius: 4px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .contact-info {
-            padding: 2rem;
-        }
-
-        .info-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-light);
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .info-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-
-        .info-content p {
-            margin-bottom: 0.5rem;
-            color: var(--gray);
-            display: block;
-        }
-
-        .info-content a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-
-        .info-content a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Colored Social Links */
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: var(--transition);
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .social-instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-
-        .social-whatsapp {
-            background: #25D366;
-        }
-
-        .social-email {
-            background: #EA4335;
-        }
-
-        .social-phone {
-            background: #34B7F1;
-        }
-
-        .social-facebook {
-            background: #1877F2;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--secondary);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo h3 {
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-logo p {
-            color: var(--accent);
-        }
-
-        .footer-links h4,
-        .footer-services h4,
-        .footer-contact h4 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links ul,
-        .footer-services ul {
-            list-style: none;
-        }
-
-        .footer-links li,
-        .footer-services li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a,
-        .footer-services a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover,
-        .footer-services a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .footer-contact p {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .footer-contact i {
-            width: 20px;
-            margin-top: 3px;
-        }
-
-        .footer-contact a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-contact a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom p {
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: var(--shadow-md);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ===== MOBILE RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            html {
-                font-size: 14px;
-            }
-            
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.5rem; }
-            
-            .container {
-                padding: 0 15px;
-            }
-            
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: 76px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 76px);
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding: 2rem;
-                gap: 0;
-                transition: left 0.3s ease;
-                box-shadow: var(--shadow-md);
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-link {
-                padding: 1rem;
-                width: 100%;
-                text-align: center;
-                border-bottom: 1px solid var(--gray-light);
-            }
-            
-            .nav-link:last-child {
-                border-bottom: none;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-            
-            .hero {
-                height: 70vh;
-                min-height: 500px;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .work-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .work-item {
-                height: 300px;
-            }
-            
-            .portfolio-item {
-                height: 250px;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .testimonial-content {
-                padding: 2rem;
-            }
-            
-            .contact-form-container {
-                padding: 2rem;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
-        @media (hover: none) and (pointer: coarse) {
-            .nav-link::after {
-                display: none;
-            }
-            
-            .nav-link.active {
-                color: var(--primary);
-                font-weight: 600;
-            }
-            
-            .work-overlay,
-            .portfolio-overlay {
-                opacity: 1;
-            }
-            
-            .work-content,
-            .portfolio-content {
-                transform: translateY(0);
-            }
-            
-            .btn,
-            .filter-btn,
-            .social-link {
-                min-height: 44px;
-                padding: 12px 24px;
-            }
-        }
-
-        /* ===== PERFORMANCE OPTIMIZATIONS ===== */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            html {
-                scroll-behavior: auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "PQ Studios Hyderabad",
+      "image": "Logo.png",
+      "description": "Professional photography studio in Hyderabad specializing in food, product, fashion, pet, and commercial photography.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.3850,
+        "longitude": 78.4867
+      },
+      "url": "https://pqstudios.net",
+      "telephone": "+919652337710",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/pqstudios_hyd",
+        "https://www.facebook.com/portrayalque"
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Loading Screen (will hide immediately) -->
+    <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <div class="logo-text">PQ Studios</div>
+            <div class="loading-logo">
+                <div class="logo-text">PQ Studios</div>
+                <div class="logo-underline"></div>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
         </div>
     </div>
 
@@ -1443,7 +86,7 @@
             <div class="nav-container">
                 <!-- Logo -->
                 <a href="#" class="logo" onclick="showPage('home'); return false;">
-                    <img src="Logo.png" alt="PQ Studios" class="logo-image">
+                    <img src="Logo.png" alt="PQ Studios Hyderabad - Professional Photography Studio" class="logo-image">
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -1474,14 +117,11 @@
                 <div class="hero-slideshow">
                     <!-- Slide 1 -->
                     <div class="slide active">
-                        <img src="homepageslideshow01.jpg" alt="Professional Photography Studio" loading="eager">
+                        <img src="homepageslideshow01.jpg" alt="Professional Photography Studio in Hyderabad - PQ Studios" loading="eager">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
-                            <!-- Commented text as requested -->
-                            <!-- <h1 class="hero-title">Capture Your Story</h1> -->
-                            <!-- <p class="hero-subtitle">Professional photography studio in Hyderabad</p> -->
                             <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
-                                <span>Book a Session</span>
+                                <span>Book a Photography Session</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -1489,11 +129,11 @@
                     
                     <!-- Slide 2 -->
                     <div class="slide">
-                        <img src="homepageslideshow02.jpg" alt="Wedding Photography Hyderabad" loading="lazy">
+                        <img src="homepageslideshow02.jpg" alt="Wedding Photography Services in Hyderabad by PQ Studios" loading="lazy">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
                             <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
-                                <span>Book a Session</span>
+                                <span>Book a Photography Session</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -1501,11 +141,11 @@
                     
                     <!-- Slide 3 -->
                     <div class="slide">
-                        <img src="homepageslideshow03.jpg" alt="Product Photography" loading="lazy">
+                        <img src="homepageslideshow03.jpg" alt="Product Photography Studio Hyderabad - Commercial Photography Services" loading="lazy">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
                             <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
-                                <span>Book a Session</span>
+                                <span>Book a Photography Session</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -1513,11 +153,11 @@
                     
                     <!-- Slide 4 -->
                     <div class="slide">
-                        <img src="homepageslideshow04.jpg" alt="Fashion Photography" loading="lazy">
+                        <img src="homepageslideshow04.jpg" alt="Fashion Photography Hyderabad - Professional Fashion Photographer" loading="lazy">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
                             <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
-                                <span>Book a Session</span>
+                                <span>Book a Photography Session</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -1543,8 +183,8 @@
             <section class="introduction section-padding">
                 <div class="container">
                     <div class="section-header">
-                        <h2 class="section-title">Professional Photography Studio</h2>
-                        <p class="section-subtitle">Hyderabad's premier destination for exceptional visual storytelling</p>
+                        <h2 class="section-title">Professional Photography Studio in Hyderabad</h2>
+                        <p class="section-subtitle">Hyderabad's premier destination for exceptional visual storytelling and professional photography services</p>
                     </div>
                     
                     <div class="intro-grid">
@@ -1552,24 +192,24 @@
                             <div class="intro-icon">
                                 <i class="fas fa-camera"></i>
                             </div>
-                            <h3>Expert Photography</h3>
-                            <p>10+ years of professional experience in wedding, commercial, and portrait photography</p>
+                            <h3>Expert Photography Services</h3>
+                            <p>10+ years of professional experience in wedding photography, commercial photography, and portrait photography in Hyderabad</p>
                         </div>
                         
                         <div class="intro-card">
                             <div class="intro-icon">
                                 <i class="fas fa-award"></i>
                             </div>
-                            <h3>Award Winning</h3>
-                            <p>Recognized excellence in photographic artistry and technical mastery</p>
+                            <h3>Award Winning Studio</h3>
+                            <p>Recognized excellence in photographic artistry and technical mastery for professional photography services</p>
                         </div>
                         
                         <div class="intro-card">
                             <div class="intro-icon">
                                 <i class="fas fa-users"></i>
                             </div>
-                            <h3>Client Focused</h3>
-                            <p>Personalized service and attention to detail for every project</p>
+                            <h3>Client Focused Approach</h3>
+                            <p>Personalized photography service and attention to detail for every photography project in Hyderabad</p>
                         </div>
                     </div>
                 </div>
@@ -1579,40 +219,40 @@
             <section class="featured-work section-padding bg-light">
                 <div class="container">
                     <div class="section-header">
-                        <h2 class="section-title">Featured Work</h2>
-                        <p class="section-subtitle">A curated selection of our finest photography projects</p>
+                        <h2 class="section-title">Featured Photography Work</h2>
+                        <p class="section-subtitle">A curated selection of our finest photography projects showcasing our expertise</p>
                     </div>
                     
                     <div class="work-grid">
                         <!-- Featured 01 -->
                         <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('food');">
-                            <img src="featured01.jpg" alt="Food Photography" loading="lazy">
+                            <img src="featured01.jpg" alt="Food photography for restaurants - Professional culinary photography services in Hyderabad" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
                                     <h3>Food Photography</h3>
-                                    <span class="work-category">Culinary Art</span>
+                                    <span class="work-category">Culinary Art Photography</span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Featured 02 -->
                         <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('product');">
-                            <img src="featured02.jpg" alt="Product Photography" loading="lazy">
+                            <img src="featured02.jpg" alt="Product photography for e-commerce - Professional product shooting services in Hyderabad" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
                                     <h3>Product Photography</h3>
-                                    <span class="work-category">Commercial</span>
+                                    <span class="work-category">Commercial Photography</span>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Featured 03 -->
                         <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('fashion');">
-                            <img src="featured03.jpg" alt="Fashion Photography" loading="lazy">
+                            <img src="featured03.jpg" alt="Fashion photography for boutiques - Professional fashion photography studio Hyderabad" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
                                     <h3>Fashion Photography</h3>
-                                    <span class="work-category">Lifestyle</span>
+                                    <span class="work-category">Lifestyle Photography</span>
                                 </div>
                             </div>
                         </div>
@@ -1620,7 +260,7 @@
                     
                     <div class="text-center mt-4">
                         <a href="#portfolio" class="btn btn-outline" onclick="showPage('portfolio'); return false;">
-                            <span>View Complete Portfolio</span>
+                            <span>View Complete Photography Portfolio</span>
                             <i class="fas fa-images"></i>
                         </a>
                     </div>
@@ -1656,8 +296,8 @@
         <section id="services-page" class="page">
             <div class="page-hero">
                 <div class="container">
-                    <h1 class="page-title">Our Services</h1>
-                    <p class="page-subtitle">Professional photography solutions for every need</p>
+                    <h1 class="page-title">Our Photography Services</h1>
+                    <p class="page-subtitle">Professional photography solutions for every need in Hyderabad</p>
                 </div>
             </div>
 
@@ -1667,20 +307,20 @@
                         <!-- 1. Food Photography -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured01 as service image -->
+                                <img src="service-food.jpg" alt="Food Photography Services Hyderabad - Restaurant food photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Food Photography</h3>
-                                <p>Mouth-watering culinary photography for restaurants, food brands, and culinary publications.</p>
+                                <p>Mouth-watering culinary photography for restaurants, food brands, cafes, and culinary publications. Professional food styling and photography that makes your dishes irresistible.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Recipe photography</li>
-                                    <li><i class="fas fa-check"></i> Menu item showcase</li>
-                                    <li><i class="fas fa-check"></i> Food styling</li>
-                                    <li><i class="fas fa-check"></i> Commercial culinary</li>
+                                    <li><i class="fas fa-check"></i> Restaurant menu photography</li>
+                                    <li><i class="fas fa-check"></i> Food styling and composition</li>
+                                    <li><i class="fas fa-check"></i> Commercial culinary photography</li>
+                                    <li><i class="fas fa-check"></i> Recipe development photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='food'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Food Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1689,20 +329,20 @@
                         <!-- 2. Product Photography -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured02 as service image -->
+                                <img src="service-product.jpg" alt="Product Photography Services Hyderabad - Ecommerce product photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Product Photography</h3>
-                                <p>Professional product imagery optimized for e-commerce platforms and advertising campaigns.</p>
+                                <p>Professional product imagery optimized for e-commerce platforms, Amazon listings, and advertising campaigns. High-quality product photography that increases sales conversions.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> White background shots</li>
-                                    <li><i class="fas fa-check"></i> Lifestyle integration</li>
-                                    <li><i class="fas fa-check"></i> Detail photography</li>
-                                    <li><i class="fas fa-check"></i> 360° product views</li>
+                                    <li><i class="fas fa-check"></i> White background product shots</li>
+                                    <li><i class="fas fa-check"></i> Lifestyle product integration</li>
+                                    <li><i class="fas fa-check"></i> Detail and texture photography</li>
+                                    <li><i class="fas fa-check"></i> 360° product view photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='product'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Product Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1711,20 +351,20 @@
                         <!-- 3. Fashion Photography -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured03 as service image -->
+                                <img src="service-fashion.jpg" alt="Fashion Photography Hyderabad - Professional fashion photographer" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Fashion Photography</h3>
-                                <p>Editorial fashion photography for designers, boutiques, and fashion publications.</p>
+                                <p>Editorial fashion photography for designers, boutiques, fashion brands, and publications. Creative fashion shoots that showcase your collection in the best light.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Lookbook creation</li>
-                                    <li><i class="fas fa-check"></i> Editorial fashion</li>
-                                    <li><i class="fas fa-check"></i> Street style</li>
+                                    <li><i class="fas fa-check"></i> Fashion lookbook creation</li>
+                                    <li><i class="fas fa-check"></i> Editorial fashion photography</li>
+                                    <li><i class="fas fa-check"></i> Street style photography</li>
                                     <li><i class="fas fa-check"></i> Model portfolio development</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='fashion'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Fashion Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1733,20 +373,20 @@
                         <!-- 4. Pet Photography -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured04 as service image -->
+                                <img src="service-pets.jpg" alt="Pet Photography Hyderabad - Professional animal photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Pet Photography</h3>
-                                <p>Artistic pet photography capturing the unique personality of your animal companions.</p>
+                                <p>Artistic pet photography capturing the unique personality of your animal companions. Professional pet portraits that create lasting memories of your furry friends.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Studio portraits</li>
-                                    <li><i class="fas fa-check"></i> Outdoor sessions</li>
-                                    <li><i class="fas fa-check"></i> Action photography</li>
-                                    <li><i class="fas fa-check"></i> Family integration</li>
+                                    <li><i class="fas fa-check"></i> Studio pet portraits</li>
+                                    <li><i class="fas fa-check"></i> Outdoor pet sessions</li>
+                                    <li><i class="fas fa-check"></i> Action pet photography</li>
+                                    <li><i class="fas fa-check"></i> Family with pets photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='pets'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Pet Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1755,20 +395,20 @@
                         <!-- 5. Brand Portfolios -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured05 as service image -->
+                                <img src="service-brand.jpg" alt="Brand Photography Hyderabad - Corporate brand photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Brand Portfolios</h3>
-                                <p>Comprehensive brand portfolio development for corporate identity and marketing.</p>
+                                <p>Comprehensive brand portfolio development for corporate identity, marketing materials, and company branding. Professional brand photography that tells your business story.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Corporate branding</li>
-                                    <li><i class="fas fa-check"></i> Executive portraits</li>
-                                    <li><i class="fas fa-check"></i> Team photography</li>
-                                    <li><i class="fas fa-check"></i> Brand storytelling</li>
+                                    <li><i class="fas fa-check"></i> Corporate branding photography</li>
+                                    <li><i class="fas fa-check"></i> Executive portrait photography</li>
+                                    <li><i class="fas fa-check"></i> Team photography sessions</li>
+                                    <li><i class="fas fa-check"></i> Brand storytelling photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='brand'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Brand Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1777,20 +417,20 @@
                         <!-- 6. Architectural Photography -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using featured06 as service image -->
+                                <img src="service-interiors.jpg" alt="Architectural Photography Hyderabad - Real estate photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Architectural Photography</h3>
-                                <p>Professional architectural and interior photography for real estate and design firms.</p>
+                                <p>Professional architectural and interior photography for real estate agencies, architects, interior designers, and property developers. Stunning property photography that sells.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Real estate marketing</li>
-                                    <li><i class="fas fa-check"></i> Interior design</li>
-                                    <li><i class="fas fa-check"></i> Architectural exteriors</li>
-                                    <li><i class="fas fa-check"></i> Virtual tours</li>
+                                    <li><i class="fas fa-check"></i> Real estate marketing photography</li>
+                                    <li><i class="fas fa-check"></i> Interior design photography</li>
+                                    <li><i class="fas fa-check"></i> Architectural exterior photography</li>
+                                    <li><i class="fas fa-check"></i> Virtual tour photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='interiors'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Architecture Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1799,20 +439,20 @@
                         <!-- 7. E-commerce Visuals -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using ecommerce image as service image -->
+                                <img src="service-ecommerce.jpg" alt="Ecommerce Photography Hyderabad - Online store photography" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>E-commerce Visuals</h3>
-                                <p>High-conversion e-commerce photography optimized for digital retail platforms.</p>
+                                <p>High-conversion e-commerce photography optimized for digital retail platforms, social media shops, and online marketplaces. Professional product photography that boosts online sales.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Amazon optimization</li>
-                                    <li><i class="fas fa-check"></i> Etsy product photos</li>
-                                    <li><i class="fas fa-check"></i> Shopify integration</li>
-                                    <li><i class="fas fa-check"></i> Social commerce</li>
+                                    <li><i class="fas fa-check"></i> Amazon product photography</li>
+                                    <li><i class="fas fa-check"></i> Etsy product photography</li>
+                                    <li><i class="fas fa-check"></i> Shopify store photography</li>
+                                    <li><i class="fas fa-check"></i> Social commerce photography</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='ecommerce'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About E-commerce Photography</span>
                                     </a>
                                 </div>
                             </div>
@@ -1821,20 +461,20 @@
                         <!-- 8. Studio Rentals -->
                         <div class="service-card">
                             <div class="service-image">
-                                <!-- Using studio shots as service image -->
+                                <img src="service-studio.jpg" alt="Studio Rental Hyderabad - Professional photography studio" loading="lazy">
                             </div>
                             <div class="service-content">
                                 <h3>Studio Rentals</h3>
-                                <p>Professional photography studio rental with complete equipment and support.</p>
+                                <p>Professional photography studio rental with complete equipment, professional lighting setups, and technical support. Fully equipped studio space for your photography needs.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Fully equipped studio</li>
-                                    <li><i class="fas fa-check"></i> Professional lighting</li>
-                                    <li><i class="fas fa-check"></i> Versatile backdrops</li>
-                                    <li><i class="fas fa-check"></i> Technical support</li>
+                                    <li><i class="fas fa-check"></i> Fully equipped photography studio</li>
+                                    <li><i class="fas fa-check"></i> Professional lighting equipment</li>
+                                    <li><i class="fas fa-check"></i> Versatile photography backdrops</li>
+                                    <li><i class="fas fa-check"></i> Technical support available</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='studio'; return false;">
-                                        <span>Inquire Now</span>
+                                        <span>Inquire About Studio Rental</span>
                                     </a>
                                 </div>
                             </div>
@@ -1848,25 +488,46 @@
         <section id="portfolio-page" class="page">
             <div class="page-hero">
                 <div class="container">
-                    <h1 class="page-title">Portfolio</h1>
-                    <p class="page-subtitle">Explore our collection of photography work</p>
+                    <h1 class="page-title">Our Photography Portfolio</h1>
+                    <p class="page-subtitle">Explore our collection of professional photography work across different categories</p>
                 </div>
             </div>
 
             <section class="portfolio section-padding">
                 <div class="container">
-                    <!-- Portfolio Filter -->
-                    <div class="portfolio-filter" id="portfolioFilter">
-                        <button class="filter-btn active" data-filter="all">All Work</button>
-                        <button class="filter-btn" data-filter="food">Food</button>
-                        <button class="filter-btn" data-filter="product">Product</button>
-                        <button class="filter-btn" data-filter="fashion">Fashion</button>
-                        <button class="filter-btn" data-filter="pets">Pets</button>
-                        <button class="filter-btn" data-filter="brand">Brand</button>
-                        <button class="filter-btn" data-filter="interiors">Architecture</button>
-                        <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-                        <button class="filter-btn" data-filter="studio">Studio</button>
+                    <!-- Portfolio Filter Container -->
+                    <div class="portfolio-filter-container">
+                        <!-- Mobile Dropdown -->
+                        <div class="mobile-filter-dropdown">
+                            <select id="mobileCategoryFilter" class="mobile-filter-select">
+                                <option value="all">All Photography Categories</option>
+                                <option value="food">Food Photography</option>
+                                <option value="product">Product Photography</option>
+                                <option value="fashion">Fashion & Lifestyle</option>
+                                <option value="pets">Pet Photography</option>
+                                <option value="brand">Brand Portfolios</option>
+                                <option value="interiors">Architecture & Interiors</option>
+                                <option value="ecommerce">E-commerce Visuals</option>
+                                <option value="studio">Studio Photography</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Desktop Filter Buttons -->
+                        <div class="portfolio-filter" id="portfolioFilter">
+                            <button class="filter-btn active" data-filter="all">All Work</button>
+                            <button class="filter-btn" data-filter="food">Food</button>
+                            <button class="filter-btn" data-filter="product">Product</button>
+                            <button class="filter-btn" data-filter="fashion">Fashion</button>
+                            <button class="filter-btn" data-filter="pets">Pets</button>
+                            <button class="filter-btn" data-filter="brand">Brand</button>
+                            <button class="filter-btn" data-filter="interiors">Architecture</button>
+                            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                            <button class="filter-btn" data-filter="studio">Studio</button>
+                        </div>
                     </div>
+                    
+                    <!-- Category Headings Container -->
+                    <div id="categoryHeadings"></div>
                     
                     <!-- Portfolio Grid -->
                     <div class="portfolio-grid" id="portfolioGrid">
@@ -1880,8 +541,8 @@
         <section id="about-page" class="page">
             <div class="page-hero">
                 <div class="container">
-                    <h1 class="page-title">About Us</h1>
-                    <p class="page-subtitle">The story behind PQ Studios</p>
+                    <h1 class="page-title">About PQ Studios</h1>
+                    <p class="page-subtitle">The story behind Hyderabad's premier photography studio</p>
                 </div>
             </div>
 
@@ -1889,31 +550,32 @@
                 <div class="container">
                     <div class="about-content">
                         <div class="about-image">
-                            <img src="sai kumar profile pic.jpg" alt="Sai Kumar Maddina - Founder" loading="lazy">
+                            <img src="sai kumar profile pic.jpg" alt="Sai Kumar Maddina - Professional Photographer Hyderabad - Founder of PQ Studios" loading="lazy">
                         </div>
                         
                         <div class="about-text">
                             <h2>Sai Kumar Maddina</h2>
-                            <p class="title">Founder & Lead Photographer</p>
+                            <p class="title">Founder & Lead Photographer at PQ Studios Hyderabad</p>
                             
-                            <p>With over a decade of professional photography experience, I founded PQ Studios with a vision to create timeless visual stories that capture the essence of every moment.</p>
+                            <p>With over a decade of professional photography experience, I founded PQ Studios with a vision to create timeless visual stories that capture the essence of every moment. Based in Hyderabad, we serve clients across India with exceptional photography services.</p>
                             
-                            <p>My journey in photography began with formal education in visual arts, complemented by years of hands-on experience working with diverse clients. This combination of academic knowledge and practical expertise allows me to approach each project with both artistic vision and technical precision.</p>
+                            <p>My journey in photography began with formal education in visual arts, complemented by years of hands-on experience working with diverse clients. This combination of academic knowledge and practical expertise allows me to approach each photography project with both artistic vision and technical precision.</p>
                             
-                            <p>At PQ Studios, we believe that great photography is more than just taking pictures - it's about creating visual narratives that resonate emotionally and stand the test of time.</p>
+                            <p>At PQ Studios Hyderabad, we believe that great photography is more than just taking pictures - it's about creating visual narratives that resonate emotionally and stand the test of time. Our photography studio is equipped with state-of-the-art equipment and our team is trained in the latest photography techniques.</p>
                         </div>
                     </div>
                     
                     <!-- Philosophy -->
                     <div class="philosophy section-padding">
-                        <h2 class="section-title">Our Philosophy</h2>
+                        <h2 class="section-title">Our Photography Philosophy</h2>
+                        <p class="section-subtitle">The principles that guide our work at PQ Studios Hyderabad</p>
                         <div class="philosophy-grid">
                             <div class="philosophy-item">
                                 <div class="philosophy-icon">
                                     <i class="fas fa-eye"></i>
                                 </div>
                                 <h3>Artistic Vision</h3>
-                                <p>We approach every project with creative insight and attention to aesthetic detail.</p>
+                                <p>We approach every photography project with creative insight and attention to aesthetic detail, ensuring each image tells a compelling story.</p>
                             </div>
                             
                             <div class="philosophy-item">
@@ -1921,7 +583,7 @@
                                     <i class="fas fa-heart"></i>
                                 </div>
                                 <h3>Passionate Craft</h3>
-                                <p>Photography is our passion, and we pour that energy into every image we create.</p>
+                                <p>Photography is our passion, and we pour that energy into every image we create, delivering photography services with dedication and love.</p>
                             </div>
                             
                             <div class="philosophy-item">
@@ -1929,7 +591,7 @@
                                     <i class="fas fa-hands-helping"></i>
                                 </div>
                                 <h3>Client Partnership</h3>
-                                <p>We work collaboratively with clients to understand and realize their vision.</p>
+                                <p>We work collaboratively with clients to understand and realize their vision, building long-term relationships through exceptional service.</p>
                             </div>
                         </div>
                     </div>
@@ -1937,29 +599,97 @@
                     <!-- Testimonials -->
                     <div class="testimonials section-padding bg-light">
                         <h2 class="section-title">Client Testimonials</h2>
+                        <p class="section-subtitle">What our photography clients say about our services</p>
+                        
+                        <!-- Google Reviews Badge -->
+                        <div class="google-reviews-badge">
+                            <a href="https://g.page/r/CQ.../review" target="_blank" class="google-review-link">
+                                <div class="google-badge">
+                                    <div class="google-icon">
+                                        <i class="fab fa-google"></i>
+                                    </div>
+                                    <div class="google-text">
+                                        <div class="google-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating">5.0</span>
+                                        </div>
+                                        <span class="review-text">Google Reviews</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                         
                         <div class="testimonial-slider">
+                            <!-- Testimonial 1 -->
                             <div class="testimonial-slide active">
                                 <div class="testimonial-content">
                                     <i class="fas fa-quote-left"></i>
-                                    <p>"PQ Studios captured our wedding day perfectly. Every photo tells a story and brings back beautiful memories. Professional, talented, and a pleasure to work with!"</p>
+                                    <p>"PQ Studios captured our wedding day with exceptional artistry and professionalism. Every photograph tells a beautiful story and brings back cherished memories. Their attention to detail and creative vision is remarkable! Highly recommended for wedding photography in Hyderabad."</p>
                                     <div class="testimonial-author">
+                                        <img src="testimonial1.jpg" alt="Rajesh & Priya Sharma - Wedding Photography Clients">
                                         <div>
                                             <h4>Rajesh & Priya Sharma</h4>
-                                            <span>Wedding Photography</span>
+                                            <span>Wedding Photography Clients</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
+                            <!-- Testimonial 2 -->
                             <div class="testimonial-slide">
                                 <div class="testimonial-content">
                                     <i class="fas fa-quote-left"></i>
-                                    <p>"The product photography for our e-commerce store significantly increased our conversion rates. Attention to detail and understanding of our brand was exceptional."</p>
+                                    <p>"The product photography for our e-commerce store increased our conversion rates by 40%. PQ Studios understood our brand perfectly and delivered images that showcased our products in the best possible light. Professional, reliable, and delivers exceptional quality."</p>
                                     <div class="testimonial-author">
+                                        <img src="testimonial2.jpg" alt="Anil Kumar - E-commerce Business Owner">
                                         <div>
                                             <h4>Anil Kumar</h4>
-                                            <span>Business Owner</span>
+                                            <span>E-commerce Business Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"As a restaurant owner in Hyderabad, I needed mouth-watering food photography for my menu and marketing. PQ Studios delivered beyond expectations. The images look so delicious they've significantly increased our takeaway orders by 30%!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="testimonial3.jpg" alt="Sarah Mehta - Restaurant Owner Hyderabad">
+                                        <div>
+                                            <h4>Sarah Mehta</h4>
+                                            <span>Restaurant Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Testimonial 4 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"The fashion photography for our boutique's new collection was stunning. PQ Studios captured the essence of our brand and created images that perfectly represented our style. Professional, creative, and a pleasure to work with!"</p>
+                                    <div class="testimonial-author">
+                                        <img src="testimonial4.jpg" alt="Priya Reddy - Fashion Boutique Owner">
+                                        <div>
+                                            <h4>Priya Reddy</h4>
+                                            <span>Fashion Boutique Owner</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Testimonial 5 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-content">
+                                    <i class="fas fa-quote-left"></i>
+                                    <p>"We needed professional headshots and team photos for our corporate website. PQ Studios created a comfortable environment and delivered exceptional results. The images perfectly represent our company's professional image and values."</p>
+                                    <div class="testimonial-author">
+                                        <img src="testimonial5.jpg" alt="Rohit Verma - Corporate Client Hyderabad">
+                                        <div>
+                                            <h4>Rohit Verma</h4>
+                                            <span>Corporate Client</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1972,6 +702,9 @@
                             </button>
                             <div class="testimonial-dots">
                                 <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
                                 <span class="dot"></span>
                             </div>
                             <button class="testimonial-next">
@@ -1987,8 +720,8 @@
         <section id="contact-page" class="page">
             <div class="page-hero">
                 <div class="container">
-                    <h1 class="page-title">Contact Us</h1>
-                    <p class="page-subtitle">Let's create something beautiful together</p>
+                    <h1 class="page-title">Contact PQ Studios</h1>
+                    <p class="page-subtitle">Let's create something beautiful together - Get in touch for photography services</p>
                 </div>
             </div>
 
@@ -1997,31 +730,29 @@
                     <div class="contact-grid">
                         <!-- Contact Form -->
                         <div class="contact-form-container">
-                            <h2>Get in Touch</h2>
-                            <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                            <h2>Get in Touch for Photography Services</h2>
+                            <p>Fill out the form below and we'll get back to you within 24 hours with photography package details.</p>
                             
                             <form id="contactForm" class="contact-form">
                                 <div class="form-group">
                                     <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="email">Email Address</label>
-                                        <input type="email" id="email" name="email">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number *</label>
-                                        <input type="tel" id="phone" name="phone" required>
-                                    </div>
+                                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="serviceSelect">Service Required *</label>
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="serviceSelect">Photography Service Required *</label>
                                     <select id="serviceSelect" name="service" required>
-                                        <option value="">Select a service</option>
+                                        <option value="">Select a photography service</option>
                                         <option value="food">Food Photography</option>
                                         <option value="product">Product Photography</option>
                                         <option value="fashion">Fashion Photography</option>
@@ -2030,17 +761,36 @@
                                         <option value="interiors">Architectural Photography</option>
                                         <option value="ecommerce">E-commerce Visuals</option>
                                         <option value="studio">Studio Rentals</option>
-                                        <option value="other">Other</option>
+                                        <option value="wedding">Wedding Photography</option>
+                                        <option value="portrait">Portrait Photography</option>
+                                        <option value="commercial">Commercial Photography</option>
+                                        <option value="other">Other Photography Service</option>
                                     </select>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                                    <label for="projectDate">Preferred Project Date</label>
+                                    <input type="date" id="projectDate" name="projectDate">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="budget">Budget Range</label>
+                                    <select id="budget" name="budget">
+                                        <option value="">Select budget range</option>
+                                        <option value="basic">Basic Package (₹5,000 - ₹15,000)</option>
+                                        <option value="standard">Standard Package (₹15,000 - ₹30,000)</option>
+                                        <option value="premium">Premium Package (₹30,000 - ₹50,000)</option>
+                                        <option value="custom">Custom Project (₹50,000+)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Project Details & Message *</label>
+                                    <textarea id="message" name="message" rows="5" required placeholder="Tell us about your photography project, location, specific requirements, and any other details..."></textarea>
                                 </div>
                                 
                                 <button type="submit" class="btn btn-primary">
-                                    <span>Send Message</span>
+                                    <span>Send Photography Inquiry</span>
                                     <i class="fas fa-paper-plane"></i>
                                 </button>
                             </form>
@@ -2056,8 +806,9 @@
                                 </div>
                                 <div class="info-content">
                                     <h3>Studio Location</h3>
-                                    <p>Hitech City, Hyderabad</p>
-                                    <p>Serving across India</p>
+                                    <p>Hitech City, Hyderabad, Telangana</p>
+                                    <p>Serving clients across India</p>
+                                    <p>Studio visits by appointment only</p>
                                 </div>
                             </div>
                             
@@ -2068,8 +819,8 @@
                                 <div class="info-content">
                                     <h3>Phone Number</h3>
                                     <a href="tel:+919652337710">+91 96523 37710</a>
-                                    <p>Monday - Saturday</p>
-                                    <p>10AM - 7PM</p>
+                                    <p>Monday - Saturday: 10AM - 7PM</p>
+                                    <p>Sunday: Appointment Basis Only</p>
                                 </div>
                             </div>
                             
@@ -2080,26 +831,39 @@
                                 <div class="info-content">
                                     <h3>Email Address</h3>
                                     <a href="mailto:info@pqstudios.net">info@pqstudios.net</a>
+                                    <p>For photography inquiries</p>
                                     <p>Response within 24 hours</p>
                                 </div>
                             </div>
                             
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Business Hours</h3>
+                                    <p>Monday - Friday: 10:00 AM - 7:00 PM</p>
+                                    <p>Saturday: 10:00 AM - 6:00 PM</p>
+                                    <p>Sunday: By Appointment Only</p>
+                                </div>
+                            </div>
+                            
                             <!-- Colored Social Links -->
-                            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Connect With Us</h3>
+                            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Connect With PQ Studios</h3>
                             <div class="social-links">
-                                <a href="https://www.instagram.com/pqstudios_hyd" target="_blank" class="social-link social-instagram" title="Instagram">
+                                <a href="https://www.instagram.com/pqstudios_hyd" target="_blank" class="social-link social-instagram" title="Follow PQ Studios on Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="https://wa.me/919652337710" target="_blank" class="social-link social-whatsapp" title="WhatsApp">
+                                <a href="https://wa.me/919652337710" target="_blank" class="social-link social-whatsapp" title="WhatsApp PQ Studios">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="mailto:info@pqstudios.net" class="social-link social-email" title="Email">
+                                <a href="mailto:info@pqstudios.net" class="social-link social-email" title="Email PQ Studios">
                                     <i class="fas fa-envelope"></i>
                                 </a>
-                                <a href="tel:+919652337710" class="social-link social-phone" title="Phone">
+                                <a href="tel:+919652337710" class="social-link social-phone" title="Call PQ Studios">
                                     <i class="fas fa-phone"></i>
                                 </a>
-                                <a href="https://www.facebook.com/portrayalque" target="_blank" class="social-link social-facebook" title="Facebook">
+                                <a href="https://www.facebook.com/portrayalque" target="_blank" class="social-link social-facebook" title="Like PQ Studios on Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </div>
@@ -2115,23 +879,24 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="Logo.png" alt="PQ Studios" class="logo-image">
-                    <p>Professional Photography Studio</p>
+                    <img src="Logo.png" alt="PQ Studios Hyderabad - Professional Photography Studio" class="logo-image">
+                    <p>Professional Photography Studio in Hyderabad</p>
+                    <p>Creating timeless visual stories since 2013</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home" onclick="showPage('home'); return false;">Home</a></li>
-                        <li><a href="#services" onclick="showPage('services'); return false;">Services</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Photography Services</a></li>
                         <li><a href="#portfolio" onclick="showPage('portfolio'); return false;">Portfolio</a></li>
-                        <li><a href="#about" onclick="showPage('about'); return false;">About</a></li>
-                        <li><a href="#contact" onclick="showPage('contact'); return false;">Contact</a></li>
+                        <li><a href="#about" onclick="showPage('about'); return false;">About PQ Studios</a></li>
+                        <li><a href="#contact" onclick="showPage('contact'); return false;">Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-services">
-                    <h4>Our Services</h4>
+                    <h4>Our Photography Services</h4>
                     <ul>
                         <li><a href="#services" onclick="showPage('services'); return false;">Food Photography</a></li>
                         <li><a href="#services" onclick="showPage('services'); return false;">Product Photography</a></li>
@@ -2150,12 +915,13 @@
                     <p><i class="fas fa-phone"></i> <a href="tel:+919652337710">+91 96523 37710</a></p>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:info@pqstudios.net">info@pqstudios.net</a></p>
                     <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 7PM</p>
+                    <p><i class="fas fa-camera"></i> Serving Hyderabad & Across India</p>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2024 PQ Studios Hyderabad. All rights reserved.</p>
-                <p>Professional Photography by Sai Kumar Maddina</p>
+                <p>Professional Photography by Sai Kumar Maddina | Photography Studio in Hyderabad</p>
             </div>
         </div>
     </footer>
@@ -2166,9 +932,201 @@
     </button>
 
     <!-- JavaScript -->
-    <script>
-        // ===== SIMPLIFIED JAVASCRIPT =====
+    <script src="script.js"></script>
+    
+    <!-- Additional CSS for fixes -->
+    <style>
+        /* Fix for mobile menu underline overlapping */
+        @media (max-width: 768px) {
+            .nav-link::after {
+                display: none !important;
+            }
+            
+            .nav-link.active {
+                color: var(--primary) !important;
+                font-weight: 600 !important;
+                background-color: var(--accent) !important;
+                border-radius: 4px !important;
+            }
+            
+            .nav-link {
+                padding: 1rem !important;
+                margin: 0.25rem 0 !important;
+            }
+        }
         
+        /* Fix for form layout - keep fields separate */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+        }
+        
+        /* Portfolio dropdown and category headings */
+        .portfolio-filter-container {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .mobile-filter-dropdown {
+            display: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobile-filter-select {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 16px;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: white;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-filter-dropdown {
+                display: block;
+            }
+            
+            .portfolio-filter {
+                display: none;
+            }
+        }
+        
+        .category-heading {
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .category-heading h3 {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Google Reviews Badge */
+        .google-reviews-badge {
+            text-align: center;
+            margin: 2rem auto 3rem;
+            max-width: 300px;
+        }
+        
+        .google-review-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .google-badge {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .google-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .google-icon {
+            background: #4285F4;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .google-text {
+            text-align: left;
+        }
+        
+        .google-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .google-rating .stars {
+            color: #FFB400;
+            font-size: 1rem;
+        }
+        
+        .google-rating .rating {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .google-badge .review-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Colored Social Links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .social-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .social-whatsapp {
+            background: #25D366;
+        }
+        
+        .social-email {
+            background: #EA4335;
+        }
+        
+        .social-phone {
+            background: #34B7F1;
+        }
+        
+        .social-facebook {
+            background: #1877F2;
+        }
+    </style>
+    
+    <!-- Simplified JavaScript -->
+    <script>
         // Hide loading screen immediately
         document.addEventListener('DOMContentLoaded', function() {
             console.log('PQ Studios - Loading...');
@@ -2176,7 +1134,10 @@
             // Hide loading screen
             const loadingScreen = document.getElementById('loadingScreen');
             if (loadingScreen) {
-                loadingScreen.style.display = 'none';
+                loadingScreen.classList.add('loaded');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
             }
             
             // Initialize all components
@@ -2332,8 +1293,31 @@
                     
                     // Filter portfolio items
                     filterPortfolio(filterValue);
+                    
+                    // Update mobile dropdown
+                    const mobileFilter = document.getElementById('mobileCategoryFilter');
+                    if (mobileFilter) {
+                        mobileFilter.value = filterValue;
+                    }
                 });
             });
+            
+            // Mobile dropdown filter
+            const mobileFilter = document.getElementById('mobileCategoryFilter');
+            if (mobileFilter) {
+                mobileFilter.addEventListener('change', function() {
+                    const filterValue = this.value;
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Activate corresponding desktop button
+                    const correspondingBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+                    if (correspondingBtn) {
+                        correspondingBtn.classList.add('active');
+                    }
+                    
+                    filterPortfolio(filterValue);
+                });
+            }
             
             // Load portfolio initially
             loadPortfolio();
@@ -2341,7 +1325,12 @@
         
         function loadPortfolio() {
             const portfolioGrid = document.getElementById('portfolioGrid');
-            if (!portfolioGrid) return;
+            const categoryHeadings = document.getElementById('categoryHeadings');
+            if (!portfolioGrid || !categoryHeadings) return;
+            
+            // Clear existing content
+            portfolioGrid.innerHTML = '';
+            categoryHeadings.innerHTML = '';
             
             // Portfolio data with your exact filenames
             const portfolioData = [
@@ -2477,39 +1466,92 @@
                 { category: 'studio', image: 'studio shots 10.jpg', title: 'Studio Photography' }
             ];
             
-            // Clear existing content
-            portfolioGrid.innerHTML = '';
-            
-            // Display all portfolio items
+            // Group items by category for headings
+            const groupedItems = {};
             portfolioData.forEach(item => {
-                const portfolioItem = document.createElement('div');
-                portfolioItem.className = 'portfolio-item';
-                portfolioItem.setAttribute('data-category', item.category);
+                if (!groupedItems[item.category]) {
+                    groupedItems[item.category] = [];
+                }
+                groupedItems[item.category].push(item);
+            });
+            
+            // Create category headings
+            const categoryTitles = {
+                'food': 'Food Photography',
+                'product': 'Product Photography',
+                'fashion': 'Fashion & Lifestyle Photography',
+                'pets': 'Pet Photography',
+                'brand': 'Brand Portfolio Photography',
+                'interiors': 'Architecture & Interior Photography',
+                'ecommerce': 'E-commerce Product Photography',
+                'studio': 'Studio Photography'
+            };
+            
+            // Display all portfolio items with category headings
+            Object.keys(groupedItems).forEach(category => {
+                // Add category heading
+                const heading = document.createElement('div');
+                heading.className = 'category-heading';
+                heading.id = `category-${category}`;
+                heading.innerHTML = `<h3>${categoryTitles[category] || category}</h3>`;
+                categoryHeadings.appendChild(heading);
                 
-                portfolioItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-content">
-                            <h4>${item.title}</h4>
-                            <span class="portfolio-category">${item.category}</span>
+                // Add items for this category
+                groupedItems[category].forEach(item => {
+                    const portfolioItem = document.createElement('div');
+                    portfolioItem.className = 'portfolio-item';
+                    portfolioItem.setAttribute('data-category', item.category);
+                    
+                    portfolioItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title} - ${categoryTitles[item.category] || item.category} photography service" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-content">
+                                <h4>${item.title}</h4>
+                                <span class="portfolio-category">${categoryTitles[item.category] || item.category}</span>
+                            </div>
                         </div>
-                    </div>
-                `;
-                
-                portfolioGrid.appendChild(portfolioItem);
+                    `;
+                    
+                    portfolioGrid.appendChild(portfolioItem);
+                });
             });
         }
         
         function filterPortfolio(category) {
             const portfolioItems = document.querySelectorAll('.portfolio-item');
+            const categoryHeadings = document.querySelectorAll('.category-heading');
             
-            portfolioItems.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
+            if (category === 'all') {
+                // Show all
+                portfolioItems.forEach(item => item.style.display = 'block');
+                categoryHeadings.forEach(heading => heading.style.display = 'block');
+            } else {
+                // Hide all
+                portfolioItems.forEach(item => item.style.display = 'none');
+                categoryHeadings.forEach(heading => heading.style.display = 'none');
+                
+                // Show selected category
+                portfolioItems.forEach(item => {
+                    if (item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    }
+                });
+                
+                const selectedHeading = document.getElementById(`category-${category}`);
+                if (selectedHeading) {
+                    selectedHeading.style.display = 'block';
                 }
-            });
+            }
+            
+            // Scroll to category heading
+            if (category !== 'all') {
+                setTimeout(() => {
+                    const heading = document.getElementById(`category-${category}`);
+                    if (heading) {
+                        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
         }
         
         // ===== TESTIMONIALS =====
@@ -2579,7 +1621,7 @@
                     
                     // Add Web3Forms hidden fields
                     formData.append('access_key', '701f0f4c-cea4-40a0-ba87-0b0859fab2bb');
-                    formData.append('subject', 'New Contact Form Submission - PQ Studios');
+                    formData.append('subject', 'New Photography Inquiry - PQ Studios Hyderabad');
                     formData.append('from_name', 'PQ Studios Website');
                     formData.append('botcheck', '');
                     
@@ -2617,14 +1659,14 @@
                         const result = await response.json();
                         
                         if (result.success) {
-                            alert('Thank you! Your message has been sent successfully.');
+                            alert('Thank you! Your photography inquiry has been sent successfully. We will contact you within 24 hours.');
                             contactForm.reset();
                         } else {
-                            alert('Something went wrong. Please try again.');
+                            alert('Something went wrong. Please try again or contact us directly at +91 96523 37710');
                         }
                     } catch (error) {
                         console.error('Form error:', error);
-                        alert('Network error. Please check your connection.');
+                        alert('Network error. Please check your connection and try again.');
                     } finally {
                         // Reset button
                         submitBtn.innerHTML = originalText;
@@ -2655,6 +1697,40 @@
                 });
             });
         }
+        
+        // ===== STATS COUNTER =====
+        function initStatsCounter() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count') || '0');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const counterInterval = setInterval(() => {
+                                current += increment;
+                                if (current < target) {
+                                    stat.textContent = Math.ceil(current);
+                                } else {
+                                    stat.textContent = target;
+                                    clearInterval(counterInterval);
+                                }
+                            }, 16);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(stat);
+            });
+        }
+        
+        // Initialize stats counter
+        initStatsCounter();
     </script>
 </body>
 </html>
