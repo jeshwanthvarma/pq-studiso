@@ -24,16 +24,16 @@
         }
 
         :root {
-            /* Color Palette */
-            --primary: #8B7355; /* Warm Brown */
-            --primary-dark: #6B5A45;
-            --primary-light: #A89276;
-            --secondary: #2C3E50; /* Dark Blue */
-            --accent: #E6D5B8; /* Light Cream */
-            --light: #F8F5F0;
-            --dark: #1A1A1A;
-            --gray: #666666;
-            --gray-light: #E0E0E0;
+            /* Color Palette - BLUE THEME */
+            --primary: #4682b4; /* Steel Blue */
+            --primary-dark: #2a5c8a;
+            --primary-light: #6ba1d6;
+            --secondary: #1a1a2e; /* Dark Blue */
+            --accent: #e6f2ff; /* Light Blue */
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
             
             /* Typography */
             --font-heading: 'Playfair Display', serif;
@@ -66,7 +66,7 @@
             overflow-x: hidden;
         }
 
-        /* ===== LOADING SCREEN - SIMPLIFIED ===== */
+        /* ===== LOADING SCREEN ===== */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -240,15 +240,8 @@
         }
 
         .logo-image {
-            height: 40px;
+            height: 50px;
             width: auto;
-        }
-
-        .logo-text {
-            font-family: var(--font-heading);
-            font-size: 1.5rem;
-            color: var(--secondary);
-            font-weight: 600;
         }
 
         .nav-menu {
@@ -522,6 +515,7 @@
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
+            background: #f0f0f0;
         }
 
         .work-item img {
@@ -650,8 +644,12 @@
         }
 
         .service-image {
-            height: 300px;
+            height: 250px;
             overflow: hidden;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .service-image img {
@@ -735,6 +733,7 @@
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
+            background: #f5f5f5;
         }
 
         .portfolio-item img {
@@ -1028,7 +1027,7 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+            box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.1);
         }
 
         .form-row {
@@ -1080,43 +1079,68 @@
         }
 
         .info-content p {
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
             color: var(--gray);
+            display: block;
         }
 
         .info-content a {
             color: var(--primary);
             text-decoration: none;
             transition: var(--transition);
+            display: block;
+            margin-bottom: 0.25rem;
         }
 
         .info-content a:hover {
             color: var(--primary-dark);
         }
 
+        /* Colored Social Links */
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: var(--accent);
-            color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: var(--transition);
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .social-link:hover {
-            background: var(--primary);
-            color: white;
             transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .social-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .social-whatsapp {
+            background: #25D366;
+        }
+
+        .social-email {
+            background: #EA4335;
+        }
+
+        .social-phone {
+            background: #34B7F1;
+        }
+
+        .social-facebook {
+            background: #1877F2;
         }
 
         /* ===== FOOTER ===== */
@@ -1182,18 +1206,21 @@
             color: var(--accent);
             margin-bottom: 1rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
         }
 
         .footer-contact i {
             width: 20px;
+            margin-top: 3px;
         }
 
         .footer-contact a {
             color: var(--accent);
             text-decoration: none;
             transition: var(--transition);
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
         .footer-contact a:hover {
@@ -1299,6 +1326,18 @@
                 display: flex;
             }
             
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            
             .hero {
                 height: 70vh;
                 min-height: 500px;
@@ -1325,6 +1364,10 @@
                 height: 250px;
             }
             
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .testimonial-content {
                 padding: 2rem;
             }
@@ -1336,6 +1379,52 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* ===== TOUCH DEVICE OPTIMIZATIONS ===== */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-link::after {
+                display: none;
+            }
+            
+            .nav-link.active {
+                color: var(--primary);
+                font-weight: 600;
+            }
+            
+            .work-overlay,
+            .portfolio-overlay {
+                opacity: 1;
+            }
+            
+            .work-content,
+            .portfolio-content {
+                transform: translateY(0);
+            }
+            
+            .btn,
+            .filter-btn,
+            .social-link {
+                min-height: 44px;
+                padding: 12px 24px;
+            }
+        }
+
+        /* ===== PERFORMANCE OPTIMIZATIONS ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
@@ -1354,7 +1443,7 @@
             <div class="nav-container">
                 <!-- Logo -->
                 <a href="#" class="logo" onclick="showPage('home'); return false;">
-                    <div class="logo-text">PQ Studios</div>
+                    <img src="Logo.png" alt="PQ Studios" class="logo-image">
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -1383,18 +1472,64 @@
             <!-- Hero Section -->
             <section class="hero">
                 <div class="hero-slideshow">
+                    <!-- Slide 1 -->
                     <div class="slide active">
-                        <!-- You can add your image here: <img src="images/hero-slide-1.jpg" alt="Professional Photography"> -->
+                        <img src="homepageslideshow01.jpg" alt="Professional Photography Studio" loading="eager">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
-                            <h1 class="hero-title">Capture Your Story</h1>
-                            <p class="hero-subtitle">Professional photography studio in Hyderabad</p>
+                            <!-- Commented text as requested -->
+                            <!-- <h1 class="hero-title">Capture Your Story</h1> -->
+                            <!-- <p class="hero-subtitle">Professional photography studio in Hyderabad</p> -->
                             <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
                                 <span>Book a Session</span>
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <img src="homepageslideshow02.jpg" alt="Wedding Photography Hyderabad" loading="lazy">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
+                                <span>Book a Session</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <img src="homepageslideshow03.jpg" alt="Product Photography" loading="lazy">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
+                                <span>Book a Session</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 -->
+                    <div class="slide">
+                        <img src="homepageslideshow04.jpg" alt="Fashion Photography" loading="lazy">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); return false;">
+                                <span>Book a Session</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide Indicators -->
+                <div class="slide-indicators">
+                    <button class="indicator active" data-slide="0"></button>
+                    <button class="indicator" data-slide="1"></button>
+                    <button class="indicator" data-slide="2"></button>
+                    <button class="indicator" data-slide="3"></button>
                 </div>
                 
                 <!-- Scroll Indicator -->
@@ -1449,30 +1584,35 @@
                     </div>
                     
                     <div class="work-grid">
-                        <div class="work-item" onclick="showPage('portfolio');">
-                            <!-- Add your image: <img src="images/featured-wedding.jpg" alt="Wedding Photography"> -->
+                        <!-- Featured 01 -->
+                        <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('food');">
+                            <img src="featured01.jpg" alt="Food Photography" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
-                                    <h3>Wedding Photography</h3>
-                                    <span class="work-category">Events</span>
+                                    <h3>Food Photography</h3>
+                                    <span class="work-category">Culinary Art</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="work-item" onclick="showPage('portfolio');">
+                        <!-- Featured 02 -->
+                        <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('product');">
+                            <img src="featured02.jpg" alt="Product Photography" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
-                                    <h3>Commercial Photography</h3>
-                                    <span class="work-category">Brands</span>
+                                    <h3>Product Photography</h3>
+                                    <span class="work-category">Commercial</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="work-item" onclick="showPage('portfolio');">
+                        <!-- Featured 03 -->
+                        <div class="work-item" onclick="showPage('portfolio'); filterPortfolio('fashion');">
+                            <img src="featured03.jpg" alt="Fashion Photography" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-content">
-                                    <h3>Portrait Photography</h3>
-                                    <span class="work-category">People</span>
+                                    <h3>Fashion Photography</h3>
+                                    <span class="work-category">Lifestyle</span>
                                 </div>
                             </div>
                         </div>
@@ -1524,76 +1664,176 @@
             <section class="services section-padding">
                 <div class="container">
                     <div class="services-grid">
-                        <!-- Wedding Photography -->
+                        <!-- 1. Food Photography -->
                         <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using featured01 as service image -->
+                            </div>
                             <div class="service-content">
-                                <h3>Wedding & Events</h3>
-                                <p>Capture your special day with timeless elegance and emotion. Professional wedding photography for ceremonies, receptions, and pre-wedding shoots.</p>
+                                <h3>Food Photography</h3>
+                                <p>Mouth-watering culinary photography for restaurants, food brands, and culinary publications.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Full Day Coverage</li>
-                                    <li><i class="fas fa-check"></i> Candid & Traditional</li>
-                                    <li><i class="fas fa-check"></i> Album Design</li>
-                                    <li><i class="fas fa-check"></i> Digital Delivery</li>
+                                    <li><i class="fas fa-check"></i> Recipe photography</li>
+                                    <li><i class="fas fa-check"></i> Menu item showcase</li>
+                                    <li><i class="fas fa-check"></i> Food styling</li>
+                                    <li><i class="fas fa-check"></i> Commercial culinary</li>
                                 </ul>
                                 <div class="service-footer">
-                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='wedding'; return false;">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='food'; return false;">
                                         <span>Inquire Now</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Commercial Photography -->
+                        <!-- 2. Product Photography -->
                         <div class="service-card">
-                            <div class="service-content">
-                                <h3>Commercial & Brand</h3>
-                                <p>Professional photography for businesses, products, and brands. Elevate your marketing with high-quality visual content.</p>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Product Photography</li>
-                                    <li><i class="fas fa-check"></i> Corporate Portraits</li>
-                                    <li><i class="fas fa-check"></i> Brand Campaigns</li>
-                                    <li><i class="fas fa-check"></i> E-commerce Photos</li>
-                                </ul>
-                                <div class="service-footer">
-                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='commercial'; return false;">
-                                        <span>Inquire Now</span>
-                                    </a>
-                                </div>
+                            <div class="service-image">
+                                <!-- Using featured02 as service image -->
                             </div>
-                        </div>
-
-                        <!-- Portrait Photography -->
-                        <div class="service-card">
                             <div class="service-content">
-                                <h3>Portrait & Lifestyle</h3>
-                                <p>Professional portrait sessions for individuals, families, and professionals. Create lasting memories with beautiful photography.</p>
+                                <h3>Product Photography</h3>
+                                <p>Professional product imagery optimized for e-commerce platforms and advertising campaigns.</p>
                                 <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Family Portraits</li>
-                                    <li><i class="fas fa-check"></i> Professional Headshots</li>
-                                    <li><i class="fas fa-check"></i> Maternity & Newborn</li>
-                                    <li><i class="fas fa-check"></i> Outdoor Sessions</li>
-                                </ul>
-                                <div class="service-footer">
-                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='portrait'; return false;">
-                                        <span>Inquire Now</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Product Photography -->
-                        <div class="service-card">
-                            <div class="service-content">
-                                <h3>Product & Food</h3>
-                                <p>Professional product and food photography that makes your offerings look irresistible.</p>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> White Background</li>
-                                    <li><i class="fas fa-check"></i> Lifestyle Shots</li>
-                                    <li><i class="fas fa-check"></i> Food Styling</li>
-                                    <li><i class="fas fa-check"></i> 360° Product Views</li>
+                                    <li><i class="fas fa-check"></i> White background shots</li>
+                                    <li><i class="fas fa-check"></i> Lifestyle integration</li>
+                                    <li><i class="fas fa-check"></i> Detail photography</li>
+                                    <li><i class="fas fa-check"></i> 360° product views</li>
                                 </ul>
                                 <div class="service-footer">
                                     <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='product'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Fashion Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using featured03 as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>Fashion Photography</h3>
+                                <p>Editorial fashion photography for designers, boutiques, and fashion publications.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Lookbook creation</li>
+                                    <li><i class="fas fa-check"></i> Editorial fashion</li>
+                                    <li><i class="fas fa-check"></i> Street style</li>
+                                    <li><i class="fas fa-check"></i> Model portfolio development</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='fashion'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Pet Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using featured04 as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>Pet Photography</h3>
+                                <p>Artistic pet photography capturing the unique personality of your animal companions.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Studio portraits</li>
+                                    <li><i class="fas fa-check"></i> Outdoor sessions</li>
+                                    <li><i class="fas fa-check"></i> Action photography</li>
+                                    <li><i class="fas fa-check"></i> Family integration</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='pets'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Brand Portfolios -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using featured05 as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>Brand Portfolios</h3>
+                                <p>Comprehensive brand portfolio development for corporate identity and marketing.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Corporate branding</li>
+                                    <li><i class="fas fa-check"></i> Executive portraits</li>
+                                    <li><i class="fas fa-check"></i> Team photography</li>
+                                    <li><i class="fas fa-check"></i> Brand storytelling</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='brand'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Architectural Photography -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using featured06 as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>Architectural Photography</h3>
+                                <p>Professional architectural and interior photography for real estate and design firms.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Real estate marketing</li>
+                                    <li><i class="fas fa-check"></i> Interior design</li>
+                                    <li><i class="fas fa-check"></i> Architectural exteriors</li>
+                                    <li><i class="fas fa-check"></i> Virtual tours</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='interiors'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. E-commerce Visuals -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using ecommerce image as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>E-commerce Visuals</h3>
+                                <p>High-conversion e-commerce photography optimized for digital retail platforms.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Amazon optimization</li>
+                                    <li><i class="fas fa-check"></i> Etsy product photos</li>
+                                    <li><i class="fas fa-check"></i> Shopify integration</li>
+                                    <li><i class="fas fa-check"></i> Social commerce</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='ecommerce'; return false;">
+                                        <span>Inquire Now</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Studio Rentals -->
+                        <div class="service-card">
+                            <div class="service-image">
+                                <!-- Using studio shots as service image -->
+                            </div>
+                            <div class="service-content">
+                                <h3>Studio Rentals</h3>
+                                <p>Professional photography studio rental with complete equipment and support.</p>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Fully equipped studio</li>
+                                    <li><i class="fas fa-check"></i> Professional lighting</li>
+                                    <li><i class="fas fa-check"></i> Versatile backdrops</li>
+                                    <li><i class="fas fa-check"></i> Technical support</li>
+                                </ul>
+                                <div class="service-footer">
+                                    <a href="#contact" class="btn btn-primary" onclick="showPage('contact'); document.getElementById('serviceSelect').value='studio'; return false;">
                                         <span>Inquire Now</span>
                                     </a>
                                 </div>
@@ -1618,39 +1858,19 @@
                     <!-- Portfolio Filter -->
                     <div class="portfolio-filter" id="portfolioFilter">
                         <button class="filter-btn active" data-filter="all">All Work</button>
-                        <button class="filter-btn" data-filter="wedding">Wedding</button>
-                        <button class="filter-btn" data-filter="commercial">Commercial</button>
-                        <button class="filter-btn" data-filter="portrait">Portrait</button>
+                        <button class="filter-btn" data-filter="food">Food</button>
                         <button class="filter-btn" data-filter="product">Product</button>
+                        <button class="filter-btn" data-filter="fashion">Fashion</button>
+                        <button class="filter-btn" data-filter="pets">Pets</button>
+                        <button class="filter-btn" data-filter="brand">Brand</button>
+                        <button class="filter-btn" data-filter="interiors">Architecture</button>
+                        <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                        <button class="filter-btn" data-filter="studio">Studio</button>
                     </div>
                     
                     <!-- Portfolio Grid -->
                     <div class="portfolio-grid" id="portfolioGrid">
-                        <!-- Sample portfolio items -->
-                        <div class="portfolio-item" data-category="wedding">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-content">
-                                    <h4>Traditional Wedding</h4>
-                                    <span class="portfolio-category">Wedding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item" data-category="commercial">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-content">
-                                    <h4>Brand Campaign</h4>
-                                    <span class="portfolio-category">Commercial</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-item" data-category="portrait">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-content">
-                                    <h4>Family Portrait</h4>
-                                    <span class="portfolio-category">Portrait</span>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Images will be loaded dynamically -->
                     </div>
                 </div>
             </section>
@@ -1668,6 +1888,10 @@
             <section class="about section-padding">
                 <div class="container">
                     <div class="about-content">
+                        <div class="about-image">
+                            <img src="sai kumar profile pic.jpg" alt="Sai Kumar Maddina - Founder" loading="lazy">
+                        </div>
+                        
                         <div class="about-text">
                             <h2>Sai Kumar Maddina</h2>
                             <p class="title">Founder & Lead Photographer</p>
@@ -1677,10 +1901,6 @@
                             <p>My journey in photography began with formal education in visual arts, complemented by years of hands-on experience working with diverse clients. This combination of academic knowledge and practical expertise allows me to approach each project with both artistic vision and technical precision.</p>
                             
                             <p>At PQ Studios, we believe that great photography is more than just taking pictures - it's about creating visual narratives that resonate emotionally and stand the test of time.</p>
-                            
-                            <div class="about-signature">
-                                <p>Sai Kumar Maddina</p>
-                            </div>
                         </div>
                     </div>
                     
@@ -1802,10 +2022,14 @@
                                     <label for="serviceSelect">Service Required *</label>
                                     <select id="serviceSelect" name="service" required>
                                         <option value="">Select a service</option>
-                                        <option value="wedding">Wedding Photography</option>
-                                        <option value="commercial">Commercial Photography</option>
-                                        <option value="portrait">Portrait Photography</option>
+                                        <option value="food">Food Photography</option>
                                         <option value="product">Product Photography</option>
+                                        <option value="fashion">Fashion Photography</option>
+                                        <option value="pets">Pet Photography</option>
+                                        <option value="brand">Brand Portfolios</option>
+                                        <option value="interiors">Architectural Photography</option>
+                                        <option value="ecommerce">E-commerce Visuals</option>
+                                        <option value="studio">Studio Rentals</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>
@@ -1843,8 +2067,9 @@
                                 </div>
                                 <div class="info-content">
                                     <h3>Phone Number</h3>
-                                    <p><a href="tel:+919652337710">+91 96523 37710</a></p>
-                                    <p>Monday - Saturday, 10AM - 7PM</p>
+                                    <a href="tel:+919652337710">+91 96523 37710</a>
+                                    <p>Monday - Saturday</p>
+                                    <p>10AM - 7PM</p>
                                 </div>
                             </div>
                             
@@ -1854,24 +2079,28 @@
                                 </div>
                                 <div class="info-content">
                                     <h3>Email Address</h3>
-                                    <p><a href="mailto:info@pqstudios.net">info@pqstudios.net</a></p>
+                                    <a href="mailto:info@pqstudios.net">info@pqstudios.net</a>
                                     <p>Response within 24 hours</p>
                                 </div>
                             </div>
                             
-                            <!-- Social Links -->
+                            <!-- Colored Social Links -->
+                            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Connect With Us</h3>
                             <div class="social-links">
-                                <a href="https://www.instagram.com/pqstudios_hyd" target="_blank" class="social-link">
+                                <a href="https://www.instagram.com/pqstudios_hyd" target="_blank" class="social-link social-instagram" title="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="https://wa.me/919652337710" target="_blank" class="social-link">
+                                <a href="https://wa.me/919652337710" target="_blank" class="social-link social-whatsapp" title="WhatsApp">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="https://www.facebook.com/portrayalque" target="_blank" class="social-link">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="mailto:info@pqstudios.net" class="social-link">
+                                <a href="mailto:info@pqstudios.net" class="social-link social-email" title="Email">
                                     <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="tel:+919652337710" class="social-link social-phone" title="Phone">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="https://www.facebook.com/portrayalque" target="_blank" class="social-link social-facebook" title="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
                                 </a>
                             </div>
                         </div>
@@ -1886,7 +2115,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <h3>PQ Studios</h3>
+                    <img src="Logo.png" alt="PQ Studios" class="logo-image">
                     <p>Professional Photography Studio</p>
                 </div>
                 
@@ -1902,12 +2131,16 @@
                 </div>
                 
                 <div class="footer-services">
-                    <h4>Services</h4>
+                    <h4>Our Services</h4>
                     <ul>
-                        <li><a href="#services" onclick="showPage('services'); return false;">Wedding Photography</a></li>
-                        <li><a href="#services" onclick="showPage('services'); return false;">Commercial Photography</a></li>
-                        <li><a href="#services" onclick="showPage('services'); return false;">Portrait Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Food Photography</a></li>
                         <li><a href="#services" onclick="showPage('services'); return false;">Product Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Fashion Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Pet Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Brand Portfolios</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Architectural Photography</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">E-commerce Visuals</a></li>
+                        <li><a href="#services" onclick="showPage('services'); return false;">Studio Rentals</a></li>
                     </ul>
                 </div>
                 
@@ -1916,6 +2149,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> Hitech City, Hyderabad</p>
                     <p><i class="fas fa-phone"></i> <a href="tel:+919652337710">+91 96523 37710</a></p>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:info@pqstudios.net">info@pqstudios.net</a></p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 10AM - 7PM</p>
                 </div>
             </div>
             
@@ -1945,10 +2179,15 @@
                 loadingScreen.style.display = 'none';
             }
             
-            // Initialize navigation
+            // Initialize all components
             initNavigation();
+            initHeroSlider();
+            initPortfolio();
+            initTestimonials();
+            initContactForm();
+            initBackToTop();
             
-            // Initialize page
+            // Show home page by default
             showPage('home');
             
             console.log('PQ Studios - Ready!');
@@ -1964,8 +2203,8 @@
             // Toggle mobile menu
             if (menuToggle) {
                 menuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
                     navMenu.classList.toggle('active');
-                    menuToggle.classList.toggle('active');
                     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
                 });
             }
@@ -1986,28 +2225,7 @@
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-                
-                // Back to top button
-                const backToTopBtn = document.getElementById('backToTop');
-                if (backToTopBtn) {
-                    if (window.scrollY > 300) {
-                        backToTopBtn.classList.add('visible');
-                    } else {
-                        backToTopBtn.classList.remove('visible');
-                    }
-                }
             });
-            
-            // Back to top button
-            const backToTopBtn = document.getElementById('backToTop');
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
         }
         
         // ===== PAGE MANAGEMENT =====
@@ -2030,6 +2248,11 @@
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Load portfolio if on portfolio page
+            if (pageId === 'portfolio') {
+                loadPortfolio();
+            }
         }
         
         function updateNavigation(pageId) {
@@ -2042,11 +2265,60 @@
             });
         }
         
-        // ===== PORTFOLIO FILTER =====
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
+        // ===== HERO SLIDER =====
+        function initHeroSlider() {
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            let slideInterval;
             
+            if (slides.length === 0) return;
+            
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Update indicators
+                indicators.forEach(indicator => {
+                    indicator.classList.remove('active');
+                });
+                
+                // Show current slide
+                slides[index].classList.add('active');
+                if (indicators[index]) {
+                    indicators[index].classList.add('active');
+                }
+                
+                currentSlide = index;
+            }
+            
+            // Click on indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    startSlideshow();
+                });
+            });
+            
+            // Start slideshow
+            function startSlideshow() {
+                slideInterval = setInterval(() => {
+                    let nextSlide = (currentSlide + 1) % slides.length;
+                    showSlide(nextSlide);
+                }, 5000);
+            }
+            
+            startSlideshow();
+        }
+        
+        // ===== PORTFOLIO =====
+        function initPortfolio() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Filter functionality
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
@@ -2058,25 +2330,197 @@
                     // Get filter value
                     const filterValue = this.getAttribute('data-filter');
                     
-                    // Show/hide portfolio items
-                    portfolioItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
+                    // Filter portfolio items
+                    filterPortfolio(filterValue);
                 });
             });
-        });
+            
+            // Load portfolio initially
+            loadPortfolio();
+        }
         
-        // ===== TESTIMONIAL SLIDER =====
-        document.addEventListener('DOMContentLoaded', function() {
+        function loadPortfolio() {
+            const portfolioGrid = document.getElementById('portfolioGrid');
+            if (!portfolioGrid) return;
+            
+            // Portfolio data with your exact filenames
+            const portfolioData = [
+                // Food Photography (15 images)
+                { category: 'food', image: 'food photography 1.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 2.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 3.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 4.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 5.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 6.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 7.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 8.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 9.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 10.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 11.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 12.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 13.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 14.jpg', title: 'Food Photography' },
+                { category: 'food', image: 'food photography 15.jpg', title: 'Food Photography' },
+                
+                // Product Photography (15 images)
+                { category: 'product', image: 'product photography 1.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 2.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 3.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 4.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 5.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 6.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 7.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 8.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 9.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 10.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 11.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 12.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 13.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 14.jpg', title: 'Product Photography' },
+                { category: 'product', image: 'product photography 15.jpg', title: 'Product Photography' },
+                
+                // Fashion & Lifestyle (15 images)
+                { category: 'fashion', image: 'fashion lifestyle 1.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 2.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 3.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 4.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 5.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 6.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 7.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 8.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 9.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 10.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 11.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 12.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 13.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 14.jpg', title: 'Fashion Photography' },
+                { category: 'fashion', image: 'fashion lifestyle 15.jpg', title: 'Fashion Photography' },
+                
+                // Pet Photography (15 images)
+                { category: 'pets', image: 'pet photography 1.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 2.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 3.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 4.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 5.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 6.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 7.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 8.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 9.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 10.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 11.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 12.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 13.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 14.jpg', title: 'Pet Photography' },
+                { category: 'pets', image: 'pet photography 15.jpg', title: 'Pet Photography' },
+                
+                // Brand Portfolios (15 images)
+                { category: 'brand', image: 'brand portfolios 1.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 2.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 3.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 4.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 5.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 6.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 7.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 8.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 9.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 10.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 11.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 12.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 13.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 14.jpg', title: 'Brand Portfolio' },
+                { category: 'brand', image: 'brand portfolios 15.jpg', title: 'Brand Portfolio' },
+                
+                // Interiors & Architecture (15 images)
+                { category: 'interiors', image: 'interiors architecture 1.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 2.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 3.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 4.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 5.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 6.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 7.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 8.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 9.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 10.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 11.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 12.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 13.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 14.jpg', title: 'Architectural Photography' },
+                { category: 'interiors', image: 'interiors architecture 15.jpg', title: 'Architectural Photography' },
+                
+                // E-commerce Visuals (15 images)
+                { category: 'ecommerce', image: 'ecommerce visuals 1.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 2.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 3.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 4.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 5.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 6.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 7.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 8.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 9.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 10.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 11.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 12.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 13.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 14.jpg', title: 'E-commerce Photography' },
+                { category: 'ecommerce', image: 'ecommerce visuals 15.jpg', title: 'E-commerce Photography' },
+                
+                // Studio Shots (10 images)
+                { category: 'studio', image: 'studio shots 1.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 2.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 3.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 4.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 5.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 6.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 7.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 8.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 9.jpg', title: 'Studio Photography' },
+                { category: 'studio', image: 'studio shots 10.jpg', title: 'Studio Photography' }
+            ];
+            
+            // Clear existing content
+            portfolioGrid.innerHTML = '';
+            
+            // Display all portfolio items
+            portfolioData.forEach(item => {
+                const portfolioItem = document.createElement('div');
+                portfolioItem.className = 'portfolio-item';
+                portfolioItem.setAttribute('data-category', item.category);
+                
+                portfolioItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <h4>${item.title}</h4>
+                            <span class="portfolio-category">${item.category}</span>
+                        </div>
+                    </div>
+                `;
+                
+                portfolioGrid.appendChild(portfolioItem);
+            });
+        }
+        
+        function filterPortfolio(category) {
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            portfolioItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // ===== TESTIMONIALS =====
+        function initTestimonials() {
             const slides = document.querySelectorAll('.testimonial-slide');
             const dots = document.querySelectorAll('.dot');
             const prevBtn = document.querySelector('.testimonial-prev');
             const nextBtn = document.querySelector('.testimonial-next');
             let currentSlide = 0;
+            
+            if (slides.length === 0) return;
             
             function showSlide(index) {
                 // Hide all slides
@@ -2120,10 +2564,10 @@
                 let nextIndex = (currentSlide + 1) % slides.length;
                 showSlide(nextIndex);
             }, 8000);
-        });
+        }
         
         // ===== CONTACT FORM =====
-        document.addEventListener('DOMContentLoaded', function() {
+        function initContactForm() {
             const contactForm = document.getElementById('contactForm');
             
             if (contactForm) {
@@ -2188,7 +2632,29 @@
                     }
                 });
             }
-        });
+        }
+        
+        // ===== BACK TO TOP =====
+        function initBackToTop() {
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (!backToTopBtn) return;
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     </script>
 </body>
 </html>
